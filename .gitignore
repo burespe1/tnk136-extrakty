@@ -1,0 +1,8 @@
+.obsidian/cache/
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/
+.DS_Store
+
+# Pokud používáš plugin Obsidian Git
+.obsidian/plugins/obsidian-git/
