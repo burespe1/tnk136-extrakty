@@ -56,7 +56,7 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | 21219-7 | 2017 | TPEG2-LRC | Location Referencing Container | [21219-07_2016.md](extrakty/md/TC278WG4/21219-07_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-7_%282017%29.docx) |
 | 21219-9 | 2016 | TPEG2-CRC | Cross Reference Container | [21219-09_2016.md](extrakty/md/TC278WG4/21219-09_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-9_%282017%29.docx) |
 | 21219-10 | 2015 | TPEG2-SNI | Service and Network Information | [21219-10_2016.md](extrakty/md/TC278WG4/21219-10_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-10_%282017%29.docx) |
-| 21219-13 | 2025 | TPEG2-PTI | Public Transport Information application | [21219-13_2024.md](extrakty/md/TC278WG4/21219-13_2024.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-13_%282024%29.docx) |
+| 21219-13 | 2024 | TPEG2-PTI | Public Transport Information application | [21219-13_2024.md](extrakty/md/TC278WG4/21219-13_2024.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-13_%282024%29.docx) |
 | 21219-14 | 2016 | TPEG2-PKI | Parking Information application | [21219-14_2016.md](extrakty/md/TC278WG4/21219-14_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-14_%282019%29.docx) |
 | 21219-15 | 2016 | TPEG2-TEC | Traffic Event Compact application | [21219-15_2019.md](extrakty/md/TC278WG4/21219-15_2019.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-15_%282020%29.docx) |
 | 21219-16 | 2016 | TPEG2-FPI | Fuel Price Information application | [21219-16_2019.md](extrakty/md/TC278WG4/21219-16_2019.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-16_%282020%29.docx) |
