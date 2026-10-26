@@ -162,10 +162,12 @@ def hlavicka(text: str) -> str:
 
 def bez_zdvojeneho_titulku(text: str, titulek: str) -> str:
     """Titulek bývá v dokumentu i jako tučný odstavec; necháme jen nadpis."""
+    obr = r"(?:!\[[^\]]*\]\([^)]*\))?"
     vzor = re.compile(
-        r"^(?:!\[[^\]]*\]\([^)]*\))?\s*\*\*" + re.escape(titulek) + r"\*\*\s*$",
+        r"^" + obr + r"\s*\*\*" + re.escape(titulek) + r"\*\*\s*" + obr + r"\s*$",
         re.M,
     )
+    # logo z textového pole s titulkem se tím zahodí taky – nic na něj neodkazuje
     return vzor.sub("", text, count=1)
 
 
@@ -184,7 +186,7 @@ def popisky_obrazku(text: str) -> str:
     vzor = re.compile(
         r"^(?P<pred>>[ \t]*)?(?P<img>!\[\]\((?P<src>[^)]+)\))[ \t]*\n"
         r"\n"
-        r"(?P<druh>Obrázek|Obr\.|Tabulka|Tab\.)[ \t]*(?P<cislo>\d+)[ \t]*[-–—:]?[ \t]*(?P<popis>[^\n]+)$",
+        r"(?P<druh>Obrázek|Obr\.|Tabulka|Tab\.)[ \t]*(?P<cislo>\d+)[ \t]*[-–—:.]?[ \t]*(?P<popis>[^\n]+)$",
         re.M,
     )
 
@@ -200,28 +202,333 @@ def popisky_obrazku(text: str) -> str:
     return vzor.sub(nahrad, text)
 
 
+POPISEK = re.compile(
+    r"^(?P<druh>Obrázek|Obr\.|Tabulka|Tabulky|Tab\.)[ \t]*(?P<cislo>\d+)\.?"
+    r"(?P<oddel>[ \t]*[-–—:][ \t]*|[ \t]+)(?P<popis>\S.*)$"
+)
+
+
+def popisky_samostatne(text: str) -> str:
+    """Popisky, které nestojí pod obrázkem (pod tabulkou, ukázkou kódu), sjednotí na **Obr. N** / **Tab. N**.
+
+    Bere jen celý řádek: buď s pomlčkou za číslem („Tabulka 4 - Příklad …“),
+    nebo celý tučný („**Tabulka 1 (ukázka z tab. 2) …**“) – věta „Tabulka 3
+    obsahuje …“ v běžném textu tak zůstane beze změny.
+    """
+    def radek(r: str) -> str:
+        if r.startswith(("**Obr.", "**Tab.")) and re.match(r"^\*\*(Obr|Tab)\. \d+\*\* ", r):
+            return r                                   # už sjednocený
+        cely_tucny = r.startswith("**") and r.rstrip().endswith("**")
+        holy = r.replace("**", "").strip()
+        m = POPISEK.match(holy)
+        if not m:
+            return r
+        s_pomlckou = bool(re.search(r"[-–—:]", m.group("oddel")))
+        velke = m.group("popis")[:1].isupper()        # „Obrázek 2 Příklad …“ ano, „Obrázek 1 ilustruje …“ ne
+        if not (cely_tucny or s_pomlckou or velke):
+            return r
+        if len(holy) > 300:
+            return r
+        zkratka = "Tab." if m.group("druh").startswith("Tab") else "Obr."
+        return f"**{zkratka} {m.group('cislo')}** {m.group('popis').strip()}"
+    text = "\n".join(radek(r) for r in text.split("\n"))
+    # alternativní text z Wordu typu „Popis: Clipboard02.jpg“ nebo „FPI Message.emf“ nic neříká
+    text = re.sub(r"!\[(?:Popis:[^\]]*|[^\]]*\.(?:png|jpe?g|gif|emf|wmf|bmp|tiff?))\]\(", "![](", text, flags=re.I)
+    alt = lambda s: s.strip().replace("[", "(").replace("]", ")")
+    # popisek obrázku NAD obrázkem (ve Wordu běžné u výřezů tabulek) → pod obrázek
+    text = re.sub(
+        r"^(?P<pop>\*\*Obr\. \d+\*\* (?P<popis>[^\n]+))\n(?:[ \t]*\n){0,2}!\[\]\((?P<src>[^)]+)\)[ \t]*$",
+        lambda m: f"![{alt(m.group('popis'))}]({m.group('src')})\n{m.group('pop')}",
+        text, flags=re.M,
+    )
+    # popisek tabulky nad výřezem tabulky: zůstane nad, obrázek dostane alternativní text
+    text = re.sub(
+        r"^(?P<pop>\*\*Tab\. \d+\*\* (?P<popis>[^\n]+))(?P<mezi>\n(?:[ \t]*\n){0,2})!\[\]\((?P<src>[^)]+)\)",
+        lambda m: f"{m.group('pop')}{m.group('mezi')}![{alt(m.group('popis'))}]({m.group('src')})",
+        text, flags=re.M,
+    )
+    # obrázek bez alternativního textu těsně nad popiskem dostane text z popisku
+    return re.sub(
+        r"!\[\]\((?P<src>[^)]+)\)(?P<mezi>[ \t]*\n(?:[ \t]*\n){0,2})(?P<pop>\*\*Obr\. \d+\*\* (?P<popis>[^\n]+))",
+        lambda m: f"![{alt(m.group('popis'))}]({m.group('src')}){m.group('mezi')}{m.group('pop')}",
+        text,
+    )
+
+
+PRILOHA = re.compile(r"^(?:\*\*)?(Příloha\s+[A-Z]\b[^*\n]{0,200}?)(?:\*\*)?\s*$")
+
+
+def nadpisy_priloh(text: str) -> str:
+    """„Příloha A (normativní) …“ jako samostatný (tučný) odstavec převede na nadpis."""
+    def radek(r: str) -> str:
+        if r.startswith("#"):
+            return r
+        cisty = r.replace("**", "")
+        cisty = re.sub(r"(?<![\w\\])_(.+?)_(?!\w)", r"\1", cisty)        # kurzíva _x_
+        cisty = re.sub(r"(?<![\w*\\])\*(.+?)\*(?!\w)", r"\1", cisty).strip()  # kurzíva *x* (pandoc)
+        cely_tucny = r.startswith("**") and r.rstrip().endswith("**")
+        m = PRILOHA.match(cisty)
+        if not m:
+            return r
+        obsah = m.group(1).strip()
+        # musí to být nadpis, ne věta: buď (normativní)/(informativní), nebo celý tučný řádek
+        if not (re.search(r"\((normativní|informativní)\)", obsah) or cely_tucny):
+            return r
+        return f"## {obsah}"
+    return "\n".join(radek(r) for r in text.split("\n"))
+
+
+JEDNA_BUNKA = re.compile(
+    r"<table>\s*(?:<colgroup>.*?</colgroup>\s*)?<tbody>\s*<tr[^>]*>\s*<td[^>]*>(?P<obsah>.*?)</td>\s*</tr>\s*</tbody>\s*</table>",
+    re.S,
+)
+
+
+def kod_z_tabulek(text: str) -> str:
+    """Tabulka s jedinou buňkou, ve které je XML nebo pseudokód, se převede na blok kódu."""
+    def nahrad(m: "re.Match") -> str:
+        obsah = m.group("obsah")
+        if "<img" in obsah or "<table" in obsah:
+            return m.group(0)
+        odstavce = re.findall(r"<p>(.*?)</p>", obsah, re.S) or [obsah]
+        radky = []
+        for o in odstavce:
+            o = re.sub(r"<br\s*/?>", "\n", o)
+            o = re.sub(r"</?(?:strong|em|span|a|sup|sub|code|u)[^>]*>", "", o)
+            radky.extend(html.unescape(o).split("\n"))
+        radky = [r.rstrip() for r in radky]
+        while radky and not radky[0].strip():
+            radky.pop(0)
+        while radky and not radky[-1].strip():
+            radky.pop()
+        if not radky:
+            return m.group(0)
+        prvni = radky[0].lstrip()
+        if prvni.startswith("<"):
+            jazyk = "xml"
+        elif any(":=" in r for r in radky):
+            jazyk = ""
+        else:
+            return m.group(0)                          # běžná tabulka s textem
+        return "```" + jazyk + "\n" + "\n".join(radky) + "\n```"
+    return JEDNA_BUNKA.sub(nahrad, text)
+
+
+SKUPINY = ("wordprocessingGroup", "wordprocessingCanvas")
+EMU_NA_PX = 9525                      # 96 dpi
+
+
+def vykresli_skupiny(zdroj: Path, tmp: Path) -> Path:
+    """Kresby, které pandoc vynechá, nahradí v kopii dokumentu obrázkem.
+
+    - skupiny a plátna z tvarů (s textovými poli): každá se vykreslí zvlášť –
+      kopie dokumentu jen s jejím odstavcem → PDF (LibreOffice) → PNG (pdftoppm)
+    - vložené objekty OLE (Visio, PowerPoint …): použije se jejich náhled
+    Bez LibreOffice, pdftoppm nebo python-docx vrátí zdroj beze změny.
+    """
+    soffice = shutil.which("soffice") or shutil.which("libreoffice")
+    if not soffice:
+        return zdroj
+    try:
+        import docx                                   # python-docx
+        from docx.oxml.ns import qn
+        from docx.shared import Emu
+        from PIL import Image
+    except ImportError:
+        return zdroj
+
+    dok = docx.Document(str(zdroj))
+    MC = "{http://schemas.openxmlformats.org/markup-compatibility/2006}"
+    WP = "{http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing}"
+    A = "{http://schemas.openxmlformats.org/drawingml/2006/main}"
+    cile = []                                         # (běh, cx, cy)
+    for r in dok.element.body.iter(qn("w:r")):
+        if any(a.tag == qn("w:del") for a in r.iterancestors()):
+            continue                                  # smazaná revize – pandoc ji zahodí
+        for kresba in r.iter(qn("w:drawing")):
+            if any(a.tag == MC + "Fallback" for a in kresba.iterancestors()):
+                continue
+            g = kresba.find(".//" + A + "graphicData")
+            ext = kresba.find(".//" + WP + "extent")
+            if g is None or ext is None or not g.get("uri", "").endswith(SKUPINY):
+                continue
+            cx, cy = int(ext.get("cx")), int(ext.get("cy"))
+            if cx < 2 * 360000:                        # drobnosti pod 2 cm vynechat
+                continue
+            cile.append((r, cx, cy))
+    # vložené objekty OLE (Visio, PowerPoint …): pandoc je vynechá, Word ukazuje jejich náhled
+    V = "{urn:schemas-microsoft-com:vml}"
+    R = "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}"
+    ole = 0
+    for r in list(dok.element.body.iter(qn("w:r"))):
+        obj = r.find(qn("w:object"))
+        if obj is None or any(a.tag == qn("w:del") for a in r.iterancestors()):
+            continue
+        img = obj.find(".//" + V + "imagedata")
+        tvar = obj.find(".//" + V + "shape")
+        rid = img.get(R + "id") if img is not None else None
+        if not rid or rid not in dok.part.related_parts:
+            continue
+        cast = dok.part.related_parts[rid]
+        nahled = tmp / ("ole_%d%s" % (ole, Path(cast.partname).suffix))
+        nahled.write_bytes(cast.blob)
+        nahled = na_png(nahled)
+        if nahled.suffix.lower() != ".png" and nahled.suffix.lower() not in (".jpg", ".jpeg", ".gif"):
+            continue
+        styl = tvar.get("style", "") if tvar is not None else ""
+        w = re.search(r"width:([\d.]+)pt", styl); h = re.search(r"height:([\d.]+)pt", styl)
+        p_el = next((a for a in r.iterancestors() if a.tag == qn("w:p")), None)
+        if p_el is None:
+            continue
+        novy = docx.text.paragraph.Paragraph(p_el, dok).add_run()
+        if w and h:
+            novy.add_picture(str(nahled), width=Emu(int(float(w.group(1)) * 12700)), height=Emu(int(float(h.group(1)) * 12700)))
+        else:
+            novy.add_picture(str(nahled))
+        r.addprevious(novy._r)
+        r.getparent().remove(r)
+        ole += 1
+
+    if not cile:
+        if ole:
+            cil = tmp / (zdroj.stem + "_kresby.docx")
+            dok.save(str(cil))
+            return cil
+        return zdroj
+
+    # každou skupinu vykreslit zvlášť: kopie dokumentu jen s jejím odstavcem → PDF → PNG
+    pdftoppm = shutil.which("pdftoppm")
+    if not pdftoppm:
+        cile = []
+    telo = dok.element.body
+    deti = list(telo.iterchildren())
+    nahrazeno = 0
+    for n, (beh, cx, cy) in enumerate(cile):
+        horni = next((a for a in [beh, *beh.iterancestors()] if a.getparent() is telo), None)
+        p_el = next((a for a in beh.iterancestors() if a.tag == qn("w:p")), None)
+        if horni is None or p_el is None:
+            continue
+        idx = deti.index(horni)
+        kopie = docx.Document(str(zdroj))
+        k_telo = kopie.element.body
+        for k, el in enumerate(list(k_telo.iterchildren())):
+            if k != idx and el.tag != qn("w:sectPr"):
+                k_telo.remove(el)
+        for el in list(k_telo.iter(qn("w:del"), qn("w:moveFrom"))):   # revize přijmout,
+            el.getparent().remove(el)                                    # jako to dělá pandoc
+        for el in list(k_telo.iter(qn("w:ins"), qn("w:moveTo"))):
+            for dite in list(el):
+                el.addprevious(dite)
+            el.getparent().remove(el)
+        for sp in k_telo.iter(qn("w:sectPr")):             # bez záhlaví a zápatí
+            for ref in sp.findall(qn("w:headerReference")) + sp.findall(qn("w:footerReference")):
+                sp.remove(ref)
+        jedna = tmp / f"kresba_{n}.docx"
+        kopie.save(str(jedna))
+        try:
+            subprocess.run([soffice, "--headless", "--convert-to", "pdf", "--outdir", str(tmp), str(jedna)],
+                           capture_output=True, timeout=120, check=True)
+            subprocess.run([pdftoppm, "-r", "150", "-f", "1", "-l", "1", "-png", "-singlefile",
+                            str(jedna.with_suffix(".pdf")), str(jedna.with_suffix(""))],
+                           capture_output=True, timeout=120, check=True)
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
+            continue
+        png = jedna.with_suffix(".png")
+        if not png.exists():
+            continue
+        _orizni(png)
+        novy = docx.text.paragraph.Paragraph(p_el, dok).add_run()
+        novy.add_picture(str(png), width=Emu(cx), height=Emu(cy))
+        beh.addprevious(novy._r)
+        beh.getparent().remove(beh)
+        nahrazeno += 1
+    if not nahrazeno and not ole:
+        return zdroj
+    cil = tmp / (zdroj.stem + "_kresby.docx")
+    dok.save(str(cil))
+    return cil
+
+
+XML_RADEK = re.compile(r"^[ \t]*\\<[/?!a-zA-Z]")
+
+
+def kod_z_odstavcu(text: str) -> str:
+    """Ukázka XML zapsaná ve Wordu jako běžné odstavce (pandoc píše „\\<xs:…\\>“) → blok kódu.
+
+    Bere souvislý úsek aspoň dvou řádků začínajících escapovaným „<“; prázdné
+    řádky mezi nimi (odstavce ve Wordu) se v bloku vynechají.
+    """
+    radky = text.split("\n")
+    out, i = [], 0
+    while i < len(radky):
+        if XML_RADEK.match(radky[i]):
+            j, blok = i, []
+            while j < len(radky) and (XML_RADEK.match(radky[j]) or not radky[j].strip()
+                                      or radky[j].strip() in ("…", "...")):
+                if radky[j].strip():
+                    blok.append(radky[j])
+                j += 1
+            if len(blok) >= 2:
+                cisty = [re.sub(r"\\([\\`*_{}\[\]()#+\-.!|<>~])", r"\1", r).rstrip() for r in blok]
+                out += ["```xml", *cisty, "```", ""]
+                i = j
+                continue
+        out.append(radky[i])
+        i += 1
+    return "\n".join(out)
+
+
 PREVEST_NA_PNG = {".emf", ".wmf", ".bmp", ".tif", ".tiff"}
 
 
-def na_png(cesta: Path) -> Path:
-    """EMF/WMF a další formáty, které GitHub nezobrazí, převede LibreOffice na PNG.
+def _orizni(png: Path, okraj: int = 8) -> None:
+    """Ořízne bílé okraje (LibreOffice kreslí EMF na celou stránku A4)."""
+    try:
+        from PIL import Image, ImageChops
+    except ImportError:
+        return
+    im = Image.open(png).convert("RGB")
+    bila = Image.new("RGB", im.size, (255, 255, 255))
+    rozdil = ImageChops.difference(im, bila).convert("L").point(lambda x: 255 if x > 6 else 0)
+    box = rozdil.getbbox()
+    if not box:
+        return
+    l, h, p, d = box
+    box = (max(0, l - okraj), max(0, h - okraj), min(im.width, p + okraj), min(im.height, d + okraj))
+    if box != (0, 0, im.width, im.height):
+        im.crop(box).save(png)
 
-    Když LibreOffice chybí nebo převod selže, vrátí původní soubor.
+
+def na_png(cesta: Path) -> Path:
+    """EMF/WMF a další formáty, které GitHub nezobrazí, převede na PNG.
+
+    Vektorové EMF/WMF jdou přes PDF (LibreOffice) a pdftoppm ve 150 dpi, aby
+    diagram zůstal čitelný; bez pdftoppm přímo LibreOffice do PNG. Bílé okraje
+    se ořežou. Když převod selže, vrátí původní soubor.
     """
     if cesta.suffix.lower() not in PREVEST_NA_PNG:
         return cesta
     soffice = shutil.which("soffice") or shutil.which("libreoffice")
     if not soffice:
         return cesta
+    png = cesta.with_suffix(".png")
+    pdftoppm = shutil.which("pdftoppm")
     try:
-        subprocess.run(
-            [soffice, "--headless", "--convert-to", "png", "--outdir", str(cesta.parent), str(cesta)],
-            capture_output=True, timeout=120, check=True,
-        )
+        if pdftoppm and cesta.suffix.lower() in (".emf", ".wmf"):
+            subprocess.run([soffice, "--headless", "--convert-to", "pdf", "--outdir", str(cesta.parent), str(cesta)],
+                           capture_output=True, timeout=120, check=True)
+            pdf = cesta.with_suffix(".pdf")
+            subprocess.run([pdftoppm, "-r", "150", "-png", "-singlefile", str(pdf), str(png.with_suffix(""))],
+                           capture_output=True, timeout=120, check=True)
+        else:
+            subprocess.run([soffice, "--headless", "--convert-to", "png", "--outdir", str(cesta.parent), str(cesta)],
+                           capture_output=True, timeout=120, check=True)
     except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
         return cesta
-    png = cesta.with_suffix(".png")
-    return png if png.exists() and png.stat().st_size > 0 else cesta
+    if not (png.exists() and png.stat().st_size > 0):
+        return cesta
+    _orizni(png)
+    return png
 
 
 def presun_obrazky(text: str, media_dir: Path, img_dir: Path, zaklad: str) -> str:
@@ -268,8 +575,12 @@ def presun_obrazky(text: str, media_dir: Path, img_dir: Path, zaklad: str) -> st
 
 
 def kurziva_podtrzitkem(text: str) -> str:
-    """Pandoc píše kurzívu hvězdičkami, v repozitáři se drží podtržítka."""
-    return re.sub(r"(?<!\*)\*(?!\*)([^*\n]+?)\*(?!\*)", r"_\1_", text)
+    """Pandoc píše kurzívu hvězdičkami, v repozitáři se drží podtržítka (mimo bloky kódu)."""
+    casti = re.split(r"(^```.*?^```)", text, flags=re.M | re.S)
+    return "".join(
+        c if c.startswith("```") else re.sub(r"(?<!\*)\*(?!\*)([^*\n]+?)\*(?!\*)", r"_\1_", c)
+        for c in casti
+    )
 
 
 def uklid_text(text: str) -> str:
@@ -292,6 +603,7 @@ def prevod(docx: Path, img_dir: Path, zaklad: str) -> str:
             if prevedeny is None:
                 raise RuntimeError("starý formát .doc a není k dispozici LibreOffice")
             zdroj = prevedeny
+        zdroj = vykresli_skupiny(zdroj, tmp_path)
         media_dir = tmp_path / "media"
         titulek = titulek_z_docx(docx)
         text = pandoc(zdroj, media_dir)
@@ -300,6 +612,10 @@ def prevod(docx: Path, img_dir: Path, zaklad: str) -> str:
         text = zanor_nadpisy(text)
         text = bez_zdvojeneho_titulku(text, titulek)
         text = popisky_obrazku(text)
+        text = kod_z_tabulek(text)
+        text = kod_z_odstavcu(text)
+        text = popisky_samostatne(text)
+        text = nadpisy_priloh(text)
         text = presun_obrazky(text, media_dir, img_dir, zaklad)
         return uklid_text(f"# {titulek}\n\n{text}")
 
