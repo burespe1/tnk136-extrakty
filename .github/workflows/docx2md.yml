@@ -33,6 +33,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -48,12 +50,25 @@ jobs:
         run: python skripty/gen-registr.py
 
       - name: Převést Word do Markdownu
+        # Převádí jen Wordy změněné v tomto pushi. Čas změny souborů se po
+        # checkoutu v CI nedá použít, proto rozhoduje git diff.
+        env:
+          PRED: ${{ github.event.before }}
         run: |
           if [ "${{ inputs.vse }}" = "true" ]; then
             python skripty/docx2md.py --vse
-          else
-            python skripty/docx2md.py
+            exit 0
           fi
+          if [ -z "$PRED" ] || ! git cat-file -e "$PRED^{commit}" 2>/dev/null; then
+            echo "Není s čím porovnat (první push nebo ruční spuštění) – nic se nepřevádí."
+            exit 0
+          fi
+          git diff --name-only --diff-filter=AMR -z "$PRED" "${{ github.sha }}" -- 'extrakty/doc/*.docx' 'extrakty/doc/*.doc' > zmenene.lst
+          if [ ! -s zmenene.lst ]; then
+            echo "Žádný změněný Word."
+            exit 0
+          fi
+          xargs -0 python skripty/docx2md.py --soubory < zmenene.lst
 
       - name: Přegenerovat registr z nového Markdownu
         # Rok vydání a počet stran čte gen-registr.py z Markdownu, takže po

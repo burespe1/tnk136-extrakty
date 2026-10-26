@@ -28,11 +28,13 @@ python skripty/gen-registr.py        # sestaví extrakty.json ze souborů na dis
 python skripty/docx2md.py            # převede, co se od posledně změnilo
 python skripty/docx2md.py 14819-1    # jen vybraný extrakt
 python skripty/docx2md.py --kontrola # nic nezapíše, jen ohlásí rozdíly
+python skripty/docx2md.py --soubory extrakty/doc/TC278WG4/extract_14819-1_(2023).docx  # podle Wordu
 python skripty/gen-index.py          # přegeneruje index.md
 ```
 
 Na GitHubu totéž dělá workflow `.github/workflows/docx2md.yml`: po pushi
-změněného `.docx` převod proběhne sám a výsledek commitne zpět.
+změněného `.docx` převede právě ty Wordy, které se v pushi změnily, a výsledek
+commitne zpět. Ručně spuštěný workflow s volbou „vše“ převede všechno.
 
 Potřebuje **pandoc**; staré binární `.doc` navíc **LibreOffice**.
 

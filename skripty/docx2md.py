@@ -304,12 +304,21 @@ def main() -> int:
     ap.add_argument("kody", nargs="*", help="kódy norem k převodu (např. 14819-1); bez nich se bere vše")
     ap.add_argument("--vse", action="store_true", help="převést i to, co je aktuální")
     ap.add_argument("--kontrola", action="store_true", help="nic nezapisovat, jen ohlásit rozdíly")
+    ap.add_argument("--soubory", nargs="+", metavar="CESTA",
+                    help="převést jen extrakty s těmito zdrojovými Wordy (cesty od kořene repozitáře)")
     args = ap.parse_args()
 
     if not shutil.which("pandoc"):
         sys.exit("Chybí pandoc. Nainstaluj ho a spusť znovu.")
 
     polozky = nacti_registr()
+    if args.soubory:
+        chtene_doc = {Path(s).as_posix() for s in args.soubory}
+        polozky = [p for p in polozky if p.get("doc") in chtene_doc]
+        args.vse = True                 # v CI nejde spoléhat na čas změny souborů
+        if not polozky:
+            print("Žádný z uvedených Wordů není v registru, není co převádět.")
+            return 0
     if args.kody:
         chtene = set(args.kody)
         polozky = [p for p in polozky if p["kod"] in chtene]

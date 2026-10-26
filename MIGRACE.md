@@ -2,7 +2,7 @@
 
 Repozitář na GitLabu má jedinou větev `main` a žádné tagy, takže na přenos
 celé historie stačí obyčejný push z pracovní kopie – mirror není potřeba.
-Pracovní kopie obsahuje celou historii z GitLabu (43 commitů) a nové commity
+Pracovní kopie obsahuje celou historii z GitLabu (43 commitů) a 8 nových commitů
 ve větvi `revize-2026-10`.
 
 Spusť u sebe v `C:\work-AI\tnk\extrakty\tnk136-extrakty`. Z Cowork sezení se
