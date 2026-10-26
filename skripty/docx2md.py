@@ -253,6 +253,13 @@ def presun_obrazky(text: str, media_dir: Path, img_dir: Path, zaklad: str) -> st
 
     text = re.sub(r"(?P<pred>!\[[^\]]*\])\((?P<cesta>[^)]+)\)", oprav, text)
 
+    # obrázky uvnitř tabulek, které pandoc nechal v HTML
+    def oprav_html(m: "re.Match") -> str:
+        nahrada = oprav(re.match(r"(?P<pred>)\((?P<cesta>[^)]+)\)", f"({m.group('cesta')})"))
+        return f'{m.group("pred")}{nahrada[1:-1]}"' if nahrada.startswith("(") else m.group(0)
+
+    text = re.sub(r'(?P<pred><img src=")(?P<cesta>[^"]+)"', oprav_html, text)
+
     if prejmenovani:
         img_dir.mkdir(parents=True, exist_ok=True)
         for puvodni, novy in prejmenovani.items():
