@@ -36,7 +36,9 @@ Na GitHubu totéž dělá workflow `.github/workflows/docx2md.yml`: po pushi
 změněného `.docx` převede právě ty Wordy, které se v pushi změnily, a výsledek
 commitne zpět. Ručně spuštěný workflow s volbou „vše“ převede všechno.
 
-Potřebuje **pandoc**; staré binární `.doc` navíc **LibreOffice**.
+Potřebuje **pandoc**. Kresby z tvarů, vložené objekty a obrázky EMF převádí přes
+**LibreOffice** a **pdftoppm** (poppler-utils) a Python balíčky `python-docx` a `pillow`;
+bez nich je převod vynechá. Staré binární `.doc` převede LibreOffice.
 
 ### Co převod dělá
 
