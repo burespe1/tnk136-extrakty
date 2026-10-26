@@ -1,0 +1,77 @@
+name: Převod extraktů do Markdownu
+
+# Zdrojem pravdy jsou .docx v extrakty/doc/. Po jejich změně se přegeneruje
+# Markdown, obrázky, registr a index a commitne se zpátky do větve.
+# Spouštěcí cesta (extrakty/doc/**) se nepřekrývá s tím, co workflow zapisuje,
+# takže se sám od sebe nespustí donekonečna.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'extrakty/doc/**'
+      - 'skripty/docx2md.py'
+      - 'skripty/gen-registr.py'
+      - 'skripty/gen-index.py'
+      - '.github/workflows/docx2md.yml'
+  workflow_dispatch:
+    inputs:
+      vse:
+        description: 'Převést znovu všechny extrakty, i ty aktuální'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: docx2md-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  prevod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Nainstalovat pandoc a LibreOffice
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends pandoc libreoffice-writer
+          pandoc --version | head -1
+
+      - name: Sestavit registr extraktů
+        run: python skripty/gen-registr.py
+
+      - name: Převést Word do Markdownu
+        run: |
+          if [ "${{ inputs.vse }}" = "true" ]; then
+            python skripty/docx2md.py --vse
+          else
+            python skripty/docx2md.py
+          fi
+
+      - name: Přegenerovat registr z nového Markdownu
+        # Rok vydání a počet stran čte gen-registr.py z Markdownu, takže po
+        # převodu musí proběhnout ještě raz – jinak se změna v hlavičce Wordu
+        # dostane do extrakty.json teprve při dalším běhu.
+        run: python skripty/gen-registr.py
+
+      - name: Přegenerovat index
+        run: python skripty/gen-index.py
+
+      - name: Commitnout výsledek
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add extrakty/md extrakty.json index.md
+          if git diff --cached --quiet; then
+            echo 'Žádná změna, není co commitovat.'
+            exit 0
+          fi
+          git commit -m 'Převod extraktů do Markdownu [automaticky]'
+          git push

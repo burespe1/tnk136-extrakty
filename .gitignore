@@ -6,3 +6,14 @@
 
 # Pokud používáš plugin Obsidian Git
 .obsidian/plugins/obsidian-git/
+
+# Python
+__pycache__/
+*.pyc
+
+# virtuální prostředí (patří do .gitignore, ne do repozitáře)
+.venv/
+
+# texty samotnych norem do repozitare nepatri (autorska prava)
+zdroje-norem/
+*_PRILOHA*.docx

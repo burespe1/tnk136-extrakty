@@ -17,14 +17,44 @@ Hotové extrakty jsou dostupné na [www.standardland.cz](https://www.standardlan
 - Práci se slovníkem termínů a encyklopedií ITS
 - Orientaci v evropské normalizaci dle Nařízení EP a Rady (EU) č. 1025/2013
 
+## 🔄 Jak vzniká Markdown
+
+Zdrojem pravdy je **Word**. Markdown v `extrakty/md/` a obrázky v
+`extrakty/md/<WG>/img/` se generují – needituj je ručně, při příštím
+převodu se změny ztratí. Opravy patří do `.docx` v `extrakty/doc/`.
+
+```bash
+python skripty/gen-registr.py        # sestaví extrakty.json ze souborů na disku
+python skripty/docx2md.py            # převede, co se od posledně změnilo
+python skripty/docx2md.py 14819-1    # jen vybraný extrakt
+python skripty/docx2md.py --kontrola # nic nezapíše, jen ohlásí rozdíly
+python skripty/gen-index.py          # přegeneruje index.md
+```
+
+Na GitHubu totéž dělá workflow `.github/workflows/docx2md.yml`: po pushi
+změněného `.docx` převod proběhne sám a výsledek commitne zpět.
+
+Potřebuje **pandoc**; staré binární `.doc` navíc **LibreOffice**.
+
+### Co převod dělá
+
+- titulek extraktu bere přímo z Wordu (je v textovém poli, pandoc ho zahazuje)
+- hlavičkovou tabulku rozpadá na název, označení normy a třídicí znak
+- popisek pod obrázkem přenáší do alternativního textu a sjednocuje na `**Obr. N**`
+- obrázky ukládá jako `<název-extraktu>_imageN.<přípona>`, číslované podle pořadí v textu
+
 ## 📂 Struktura projektu
 
 ```plaintext
-📁 extrakty/
-├── norma-xyz.md       # Markdown extrakt konkrétní normy
-├── norma-abc.md       # Další extrakt
-📁 skripty/
-├── konverze-docx.py   # Skript pro převod DOCX → MD
-📁 .
-├── seznam-norem.json  # Metadata k extraktům
-├── README.md
+extrakty/
+├── doc/<WG>/extract_<kód>_(<rok>).docx   # zdroj – Word
+└── md/<WG>/<kód>_<rok>.md                # generovaný Markdown
+    └── img/                              # obrázky k němu
+skripty/
+├── docx2md.py        # převod Word → Markdown
+├── gen-registr.py    # sestaví extrakty.json
+└── gen-index.py      # přegeneruje index.md
+extrakty.json         # registr všech extraktů (generovaný)
+index.md              # přehled s odkazy (generovaný)
+MIGRACE.md            # přesun repozitáře z GitLabu na GitHub
+```
