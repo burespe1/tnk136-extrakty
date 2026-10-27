@@ -78,7 +78,11 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 
 | Norma | Vydání | Zkratka | Název | Markdown | Zdroj |
 |---|---|---|---|---|---|
+| 12813 | 2010 |  | CEN ISO/TS 12813 | [12813_2010.md](extrakty/md/TC278WG5/12813_2010.md) | [.docx](extrakty/doc/TC278WG5/extract_12813_%282010%29.docx) |
+| 14907-2 | 2012 |  | EN ISO 14907-2 | [14907-2_2012.md](extrakty/md/TC278WG5/14907-2_2012.md) | [.docx](extrakty/doc/TC278WG5/extract_14907-2_%282012%29.docx) |
 | 15762 | 2008 |  | EN 15762 | [15762_2014.md](extrakty/md/TC278WG5/15762_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_15762_%282014%29.docx) |
+| 15876-1 | 2010 |  | EN 15876-1 | [15876-1_2010.md](extrakty/md/TC278WG5/15876-1_2010.md) | [.docx](extrakty/doc/TC278WG5/extract_15876-1_%282010%29.docx) |
+| 16092 | 2012 |  | CEN ISO/TS 16092 | [16092_2012.md](extrakty/md/TC278WG5/16092_2012.md) | [.docx](extrakty/doc/TC278WG5/extract_16092_%282012%29.docx) |
 | 16152 | 2011 |  | EN 16152 | [16152_2013.md](extrakty/md/TC278WG5/16152_2013.md) | [.docx](extrakty/doc/TC278WG5/extract_16152_%282012%29.docx) |
 | 16219 | 2013 |  | EN 16219 | [16219_2014.md](extrakty/md/TC278WG5/16219_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16219_%282013%29.docx) |
 | 16403-2 | 2014 |  | CEN ISO/TS 16403-2 | [16403-2_2014.md](extrakty/md/TC278WG5/16403-2_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16403-2_%282014%29.docx) |
@@ -103,4 +107,4 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 
 ---
 
-Celkem 75 extraktů, z toho 75 dostupných v Markdownu.
+Celkem 79 extraktů, z toho 79 dostupných v Markdownu.

@@ -154,7 +154,7 @@
       "md": "extrakty/md/TC278WG12/24534-5_2010.md",
       "prevoditelny": true,
       "rok_vydani": 2008,
-      "stran": 91
+      "stran": 43
     },
     {
       "kod": "24535",
@@ -736,6 +736,28 @@
       "prevoditelny": true
     },
     {
+      "kod": "12813",
+      "wg": "TC278WG5",
+      "oznaceni": "CEN ISO/TS 12813",
+      "nazev": "CEN ISO/TS 12813",
+      "zkratka": "",
+      "rok_extraktu": 2010,
+      "doc": "extrakty/doc/TC278WG5/extract_12813_(2010).docx",
+      "md": "extrakty/md/TC278WG5/12813_2010.md",
+      "prevoditelny": true
+    },
+    {
+      "kod": "14907-2",
+      "wg": "TC278WG5",
+      "oznaceni": "EN ISO 14907-2",
+      "nazev": "EN ISO 14907-2",
+      "zkratka": "",
+      "rok_extraktu": 2012,
+      "doc": "extrakty/doc/TC278WG5/extract_14907-2_(2012).docx",
+      "md": "extrakty/md/TC278WG5/14907-2_2012.md",
+      "prevoditelny": true
+    },
+    {
       "kod": "15762",
       "wg": "TC278WG5",
       "oznaceni": "EN 15762",
@@ -747,6 +769,28 @@
       "prevoditelny": true,
       "rok_vydani": 2008,
       "stran": 10
+    },
+    {
+      "kod": "15876-1",
+      "wg": "TC278WG5",
+      "oznaceni": "EN 15876-1",
+      "nazev": "EN 15876-1",
+      "zkratka": "",
+      "rok_extraktu": 2010,
+      "doc": "extrakty/doc/TC278WG5/extract_15876-1_(2010).docx",
+      "md": "extrakty/md/TC278WG5/15876-1_2010.md",
+      "prevoditelny": true
+    },
+    {
+      "kod": "16092",
+      "wg": "TC278WG5",
+      "oznaceni": "CEN ISO/TS 16092",
+      "nazev": "CEN ISO/TS 16092",
+      "zkratka": "",
+      "rok_extraktu": 2012,
+      "doc": "extrakty/doc/TC278WG5/extract_16092_(2012).docx",
+      "md": "extrakty/md/TC278WG5/16092_2012.md",
+      "prevoditelny": true
     },
     {
       "kod": "16152",
