@@ -43,7 +43,9 @@
       "rok_extraktu": 2013,
       "doc": "extrakty/doc/TC278WG12/extract_16312_(2013).docx",
       "md": "extrakty/md/TC278WG12/16312_2013.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2013,
+      "stran": 44
     },
     {
       "kod": "17261",
@@ -87,7 +89,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG12/extract_17264_(2008).docx",
       "md": "extrakty/md/TC278WG12/17264_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2009,
+      "stran": 30
     },
     {
       "kod": "24534-1",
@@ -109,7 +113,9 @@
       "rok_extraktu": 2010,
       "doc": "extrakty/doc/TC278WG12/extract_24534-2_(2010).docx",
       "md": "extrakty/md/TC278WG12/24534-2_2010.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2010,
+      "stran": 24
     },
     {
       "kod": "24534-3",
@@ -120,7 +126,9 @@
       "rok_extraktu": 2010,
       "doc": "extrakty/doc/TC278WG12/extract_24534-3_(2010).docx",
       "md": "extrakty/md/TC278WG12/24534-3_2010.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2010,
+      "stran": 40
     },
     {
       "kod": "24534-4",
@@ -131,7 +139,9 @@
       "rok_extraktu": 2010,
       "doc": "extrakty/doc/TC278WG12/extract_24534-4_(2010).docx",
       "md": "extrakty/md/TC278WG12/24534-4_2010.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2010,
+      "stran": 91
     },
     {
       "kod": "24534-5",
@@ -142,7 +152,9 @@
       "rok_extraktu": 2010,
       "doc": "extrakty/doc/TC278WG12/extract_24534-5_(2010).docx",
       "md": "extrakty/md/TC278WG12/24534-5_2010.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2008,
+      "stran": 91
     },
     {
       "kod": "24535",
@@ -153,7 +165,9 @@
       "rok_extraktu": 2010,
       "doc": "extrakty/doc/TC278WG12/extract_24535_(2010).docx",
       "md": "extrakty/md/TC278WG12/24535_2010.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2007,
+      "stran": 15
     },
     {
       "kod": "14819-1",
@@ -778,7 +792,9 @@
       "rok_extraktu": 2014,
       "doc": "extrakty/doc/TC278WG5/extract_16410-2_(2014).docx",
       "md": "extrakty/md/TC278WG5/16410-2_2014.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2012,
+      "stran": 12
     },
     {
       "kod": "16439",
@@ -813,7 +829,9 @@
       "rok_extraktu": 2014,
       "doc": "extrakty/doc/TC278WG5/extract_17444-2_(2014).docx",
       "md": "extrakty/md/TC278WG5/17444-2_2014.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2013,
+      "stran": 104
     },
     {
       "kod": "14296",
@@ -861,7 +879,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG7/extract_17572-1_(2008).docx",
       "md": "extrakty/md/TC278WG7/17572-1_2009.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2008,
+      "stran": 41
     },
     {
       "kod": "17572-2",
@@ -872,7 +892,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG7/extract_17572-2_(2008).docx",
       "md": "extrakty/md/TC278WG7/17572-2_2009.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2008,
+      "stran": 33
     },
     {
       "kod": "17572-3",

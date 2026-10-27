@@ -17,13 +17,13 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | 17261 | 2008 |  | EN ISO 17261 | [17261_2008.md](extrakty/md/TC278WG12/17261_2008.md) | [.docx](extrakty/doc/TC278WG12/extract_17261_%282008%29.docx) |
 | 17262 | 2008 |  | EN ISO 17262 | [17262_2008.md](extrakty/md/TC278WG12/17262_2008.md) | [.docx](extrakty/doc/TC278WG12/extract_17262_%282008%29.docx) |
 | 17263 | 2008 |  | EN ISO 17263 | [17263_2008.md](extrakty/md/TC278WG12/17263_2008.md) | [.docx](extrakty/doc/TC278WG12/extract_17263_%282008%29.docx) |
-| 17264 | 2008 |  | EN ISO 17264 | [17264_2008.md](extrakty/md/TC278WG12/17264_2008.md) | [.docx](extrakty/doc/TC278WG12/extract_17264_%282008%29.docx) |
+| 17264 | 2009 |  | EN ISO 17264 | [17264_2008.md](extrakty/md/TC278WG12/17264_2008.md) | [.docx](extrakty/doc/TC278WG12/extract_17264_%282008%29.docx) |
 | 24534-1 | 2009 |  | EN ISO 24534-1 | [24534-1_2009.md](extrakty/md/TC278WG12/24534-1_2009.md) | [.docx](extrakty/doc/TC278WG12/extract_24534-1_%282009%29.docx) |
 | 24534-2 | 2010 |  | EN ISO 24534-2 | [24534-2_2010.md](extrakty/md/TC278WG12/24534-2_2010.md) | [.docx](extrakty/doc/TC278WG12/extract_24534-2_%282010%29.docx) |
 | 24534-3 | 2010 |  | EN ISO 24534-3 | [24534-3_2010.md](extrakty/md/TC278WG12/24534-3_2010.md) | [.docx](extrakty/doc/TC278WG12/extract_24534-3_%282010%29.docx) |
 | 24534-4 | 2010 |  | EN ISO 24534-4 | [24534-4_2010.md](extrakty/md/TC278WG12/24534-4_2010.md) | [.docx](extrakty/doc/TC278WG12/extract_24534-4_%282010%29.docx) |
-| 24534-5 | 2010 |  | ISO 24534-5 | [24534-5_2010.md](extrakty/md/TC278WG12/24534-5_2010.md) | [.docx](extrakty/doc/TC278WG12/extract_24534-5_%282010%29.docx) |
-| 24535 | 2010 |  | ISO 24535 | [24535_2010.md](extrakty/md/TC278WG12/24535_2010.md) | [.docx](extrakty/doc/TC278WG12/extract_24535_%282010%29.docx) |
+| 24534-5 | 2008 |  | ISO 24534-5 | [24534-5_2010.md](extrakty/md/TC278WG12/24534-5_2010.md) | [.docx](extrakty/doc/TC278WG12/extract_24534-5_%282010%29.docx) |
+| 24535 | 2007 |  | ISO 24535 | [24535_2010.md](extrakty/md/TC278WG12/24535_2010.md) | [.docx](extrakty/doc/TC278WG12/extract_24535_%282010%29.docx) |
 
 ## WG4 – Dopravní a cestovní informace (TTI)
 
@@ -82,10 +82,10 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | 16152 | 2011 |  | EN 16152 | [16152_2013.md](extrakty/md/TC278WG5/16152_2013.md) | [.docx](extrakty/doc/TC278WG5/extract_16152_%282012%29.docx) |
 | 16219 | 2013 |  | EN 16219 | [16219_2014.md](extrakty/md/TC278WG5/16219_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16219_%282013%29.docx) |
 | 16403-2 | 2014 |  | CEN ISO/TS 16403-2 | [16403-2_2014.md](extrakty/md/TC278WG5/16403-2_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16403-2_%282014%29.docx) |
-| 16410-2 | 2014 |  | CEN ISO/TS 16410-2 | [16410-2_2014.md](extrakty/md/TC278WG5/16410-2_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16410-2_%282014%29.docx) |
+| 16410-2 | 2012 |  | CEN ISO/TS 16410-2 | [16410-2_2014.md](extrakty/md/TC278WG5/16410-2_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16410-2_%282014%29.docx) |
 | 16439 | 2014 |  | EN 16439 | [16439_2014.md](extrakty/md/TC278WG5/16439_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16439_%282014%29.docx) |
 | 16690 | 2014 |  | CEN ISO/TS 16690 | [16690_2014.md](extrakty/md/TC278WG5/16690_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16690_%282014%29.docx) |
-| 17444-2 | 2014 |  | CEN ISO/TS 17444-2 | [17444-2_2014.md](extrakty/md/TC278WG5/17444-2_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_17444-2_%282014%29.docx) |
+| 17444-2 | 2013 |  | CEN ISO/TS 17444-2 | [17444-2_2014.md](extrakty/md/TC278WG5/17444-2_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_17444-2_%282014%29.docx) |
 
 ## WG7 – Geografické datové soubory a určování polohy
 
