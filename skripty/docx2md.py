@@ -143,20 +143,31 @@ def hlavicka(text: str) -> str:
             zbytek += [" ".join(_bez_znacek(x).split()) for x in re.split(r"</p>", b)]
         return slozeni(bunky[0], zbytek)
 
-    novy = re.sub(r"<table>.*?</table>", z_html, text, count=1, flags=re.S)
-    if novy != text:
-        return novy
+    # hlavička končí řádkem „Vydána…“ nebo prvním nadpisem – tabulky za ní nejsou hlavičkové
+    m_konec = re.search(r"^(?:Vydána|Platí od|#+ (?!.*(?:EXTRAKT|Extrakt nenahrazuje))|\*\*Úvod)", text, re.M)
+    konec = m_konec.start() if m_konec else len(text)
+    zahlavi, telo = text[:konec], text[konec:]
 
-    # b) pipe tabulka
-    radky = text.split("\n")
+    nove = re.sub(r"<table>.*?</table>", z_html, zahlavi, count=1, flags=re.S)
+    if nove != zahlavi:
+        return nove + telo
+
+    # b) pipe tabulka; řádek s tabulkou může být prázdný (jen „|  |  |“), obsah je pak až pod oddělovačem
+    radky = zahlavi.split("\n")
     for i, radek in enumerate(radky):
-        if not radek.startswith("|") or "ČSN" not in radek:
+        if not radek.startswith("|") or not re.search(r"ČSN|ISO|EN |CEN|TNI", radek):
             continue
-        if i + 1 >= len(radky) or set(radky[i + 1].replace("|", "").replace(" ", "")) > {"-", ":"}:
+        j = i + 1
+        if i >= 2 and set(radky[i - 1].replace("|", "").replace(" ", "")) <= {"-", ":"} and radky[i - 1].strip():
+            od = i - 2  # prázdná hlavička tabulky + oddělovač nad řádkem s obsahem
+        elif j < len(radky) and set(radky[j].replace("|", "").replace(" ", "")) <= {"-", ":"} and radky[j].strip():
+            od, j = i, i + 1
+        else:
             continue
         bunky = [b.strip() for b in radek.strip().strip("|").split("|")]
+        bunky = [re.sub(r"^\*\*(.*)\*\*$", r"\1", b) for b in bunky]
         nahrada = slozeni(bunky[0] if bunky else "", bunky[1:])
-        return "\n".join(radky[:i] + nahrada.split("\n") + radky[i + 2:])
+        return "\n".join(radky[:od] + nahrada.split("\n") + radky[max(i, j) + 1:]) + telo
     return text
 
 
