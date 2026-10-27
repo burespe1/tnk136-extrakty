@@ -42,13 +42,13 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | 18234-4 | 2008 |  | CEN ISO/TS 18234-4 | [18234-4_2008.md](extrakty/md/TC278WG4/18234-4_2008.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-4_%282008%29.docx) |
 | 18234-5 | 2008 |  | CEN ISO/TS 18234-5 | [18234-5_2008.md](extrakty/md/TC278WG4/18234-5_2008.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-5_%282008%29.docx) |
 | 18234-6 | 2008 |  | CEN ISO/TS 18234-6 | [18234-6_2008.md](extrakty/md/TC278WG4/18234-6_2008.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-6_%282008%29.docx) |
-| 18234-7 | 2012 |  | CEN ISO TS 18234-7 | [18234-7_2012.md](extrakty/md/TC278WG4/18234-7_2012.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-7_%282012%29.docx) |
+| 18234-7 | 2013 |  | CEN ISO TS 18234-7 | [18234-7_2012.md](extrakty/md/TC278WG4/18234-7_2012.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-7_%282012%29.docx) |
 | 18234-8 | 2012 |  | ISO TS 18234-8 | [18234-8_2012.md](extrakty/md/TC278WG4/18234-8_2012.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-8_%282012%29.docx) |
-| 18234-9 | 2012 |  | CEN ISO TS 18234-9 | [18234-9_2012.md](extrakty/md/TC278WG4/18234-9_2012.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-9_%282012%29.docx) |
+| 18234-9 | 2013 |  | CEN ISO TS 18234-9 | [18234-9_2012.md](extrakty/md/TC278WG4/18234-9_2012.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-9_%282012%29.docx) |
 | 18234-10 | 2013 |  | CEN ISO TS 18234-10 | [18234-10_2013.md](extrakty/md/TC278WG4/18234-10_2013.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-10_%282013%29.docx) |
 | 18234-11 | 2013 |  | CEN ISO TS 18234-11 | [18234-11_2013.md](extrakty/md/TC278WG4/18234-11_2013.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-11_%282013%29.docx) |
 | 21219-1 | 2016 | TPEG2-INV | Introduction, Numbering and Versions | [21219-01_2016.md](extrakty/md/TC278WG4/21219-01_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-1_%282016%29.docx) |
-| 21219-2 | 2016 | TPEG2-UML | UML Modelling Rules | [21219-02_2016.md](extrakty/md/TC278WG4/21219-02_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-2_%282015%29.docx) |
+| 21219-2 | 2014 | TPEG2-UML | UML Modelling Rules | [21219-02_2016.md](extrakty/md/TC278WG4/21219-02_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-2_%282015%29.docx) |
 | 21219-3 | 2015 | TPEG2-UBCR | UML to Binary Conversion Rules | [21219-03_2016.md](extrakty/md/TC278WG4/21219-03_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-3_%282015%29.docx) |
 | 21219-4 | 2015 | TPEG2-UXCR | UML to XML Conversion Rules | [21219-04_2016.md](extrakty/md/TC278WG4/21219-04_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-4_%282015%29.docx) |
 | 21219-5 | 2015 | TPEG2-SFW | Service Framework | [21219-05_2016.md](extrakty/md/TC278WG4/21219-05_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-5_%282016%29.docx) |
@@ -58,11 +58,11 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | 21219-10 | 2016 | TPEG2-SNI | Service and Network Information | [21219-10_2016.md](extrakty/md/TC278WG4/21219-10_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-10_%282017%29.docx) |
 | 21219-13 | 2025 | TPEG2-PTI | Public Transport Information application | [21219-13_2024.md](extrakty/md/TC278WG4/21219-13_2024.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-13_%282024%29.docx) |
 | 21219-14 | 2016 | TPEG2-PKI | Parking Information application | [21219-14_2016.md](extrakty/md/TC278WG4/21219-14_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-14_%282019%29.docx) |
-| 21219-15 | 2016 | TPEG2-TEC | Traffic Event Compact application | [21219-15_2019.md](extrakty/md/TC278WG4/21219-15_2019.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-15_%282020%29.docx) |
+| 21219-15 | 2016 | TPEG2-TEC | Traffic Event Compact application | [21219-15_2019.md](extrakty/md/TC278WG4/21219-15_2019.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-15_%282019%29.docx) |
 | 21219-16 | 2016 | TPEG2-FPI | Fuel Price Information application | [21219-16_2019.md](extrakty/md/TC278WG4/21219-16_2019.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-16_%282020%29.docx) |
 | 21219-17 | 2023 | TPEG2-SPI | Speed Information application | [21219-17_2022.md](extrakty/md/TC278WG4/21219-17_2022.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-17_%282022%29.docx) |
 | 21219-18 | 2019 | TPEG2-TFP | Traffic Flow and Prediction application | [21219-18_2020.md](extrakty/md/TC278WG4/21219-18_2020.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-18_%282020%29.docx) |
-| 21219-19 | 2023 | TPEG2-WEA | Weather Information application | [21219-19_2022.md](extrakty/md/TC278WG4/21219-19_2022.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-19_%282022%29.docx) |
+| 21219-19 | 2016 | TPEG2-WEA | Weather Information application | [21219-19_2022.md](extrakty/md/TC278WG4/21219-19_2022.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-19_%282022%29.docx) |
 | 21219-21 | 2018 | TPEG2-GLR | Geographic Location Referencing | [21219-21_2020.md](extrakty/md/TC278WG4/21219-21_2020.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-21_%282020%29.docx) |
 | 21219-22 | 2017 | TPEG2-OLR | OpenLR Location Referencing | [21219-22_2020.md](extrakty/md/TC278WG4/21219-22_2020.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-22_%282020%29.docx) |
 | 21219-23 | 2016 | TPEG2-RMR | Road and Multimodal Routes application | [21219-23_2021.md](extrakty/md/TC278WG4/21219-23_2021.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-23_%282021%29.docx) |
@@ -78,9 +78,9 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 
 | Norma | Vydání | Zkratka | Název | Markdown | Zdroj |
 |---|---|---|---|---|---|
-| 15762 | 2014 |  | EN 15762 | [15762_2014.md](extrakty/md/TC278WG5/15762_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_15762_%282014%29.docx) |
-| 16152 | 2013 |  | EN 16152 | [16152_2013.md](extrakty/md/TC278WG5/16152_2013.md) | [.docx](extrakty/doc/TC278WG5/extract_16152_%282013%29.docx) |
-| 16219 | 2014 |  | EN 16219 | [16219_2014.md](extrakty/md/TC278WG5/16219_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16219_%282014%29.docx) |
+| 15762 | 2008 |  | EN 15762 | [15762_2014.md](extrakty/md/TC278WG5/15762_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_15762_%282014%29.docx) |
+| 16152 | 2011 |  | EN 16152 | [16152_2013.md](extrakty/md/TC278WG5/16152_2013.md) | [.docx](extrakty/doc/TC278WG5/extract_16152_%282012%29.docx) |
+| 16219 | 2013 |  | EN 16219 | [16219_2014.md](extrakty/md/TC278WG5/16219_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16219_%282013%29.docx) |
 | 16403-2 | 2014 |  | CEN ISO/TS 16403-2 | [16403-2_2014.md](extrakty/md/TC278WG5/16403-2_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16403-2_%282014%29.docx) |
 | 16410-2 | 2014 |  | CEN ISO/TS 16410-2 | [16410-2_2014.md](extrakty/md/TC278WG5/16410-2_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16410-2_%282014%29.docx) |
 | 16439 | 2014 |  | EN 16439 | [16439_2014.md](extrakty/md/TC278WG5/16439_2014.md) | [.docx](extrakty/doc/TC278WG5/extract_16439_%282014%29.docx) |
@@ -94,12 +94,12 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | 14296 | 2016 |  | ISO 14296 | [14296_2016.md](extrakty/md/TC278WG7/14296_2016.md) | [.docx](extrakty/doc/TC278WG7/extract_14296_%282016%29.docx) |
 | 14825 | 2008 |  | EN ISO 14825 | [14825_2008.md](extrakty/md/TC278WG7/14825_2008.md) | [.docx](extrakty/doc/TC278WG7/extract_14825_%282008%29.docx) |
 | 17267 | 2009 |  | ISO 17267 | [17267_2009.md](extrakty/md/TC278WG7/17267_2009.md) | [.docx](extrakty/doc/TC278WG7/extract_17267_%282009%29.docx) |
-| 17572-1 | 2009 |  | ISO 17572-1 | [17572-1_2009.md](extrakty/md/TC278WG7/17572-1_2009.md) | [.docx](extrakty/doc/TC278WG7/extract_17572-1_%282009%29.docx) |
-| 17572-2 | 2009 |  | ISO 17572-2 | [17572-2_2009.md](extrakty/md/TC278WG7/17572-2_2009.md) | [.docx](extrakty/doc/TC278WG7/extract_17572-2_%282009%29.docx) |
+| 17572-1 | 2008 |  | ISO 17572-1 | [17572-1_2009.md](extrakty/md/TC278WG7/17572-1_2009.md) | [.docx](extrakty/doc/TC278WG7/extract_17572-1_%282008%29.docx) |
+| 17572-2 | 2008 |  | ISO 17572-2 | [17572-2_2009.md](extrakty/md/TC278WG7/17572-2_2009.md) | [.docx](extrakty/doc/TC278WG7/extract_17572-2_%282008%29.docx) |
 | 17572-3 | 2015 |  | ISO 17572-3 | [17572-3_2015.md](extrakty/md/TC278WG7/17572-3_2015.md) | [.docx](extrakty/doc/TC278WG7/extract_17572-3_%282015%29.docx) |
-| 20452 | 2009 |  | ISO/TS 20452 | [20452_2009.md](extrakty/md/TC278WG7/20452_2009.md) | [.docx](extrakty/doc/TC278WG7/extract_20452_%282009%29.docx) |
+| 20452 | 2007 |  | ISO/TS 20452 | [20452_2009.md](extrakty/md/TC278WG7/20452_2009.md) | [.docx](extrakty/doc/TC278WG7/extract_20452_%282009%29.docx) |
 | 22726-1 | 2025 |  | ISO TS 22726-1 | [22726-1_2023.md](extrakty/md/TC278WG7/22726-1_2023.md) | [.docx](extrakty/doc/TC278WG7/extract_22726-1_%282025%29.docx) |
-| 24099 | 2010 |  | ISO 24099 | [24099_2010.md](extrakty/md/TC278WG7/24099_2010.md) | [.docx](extrakty/doc/TC278WG7/extract_24099_%282010%29.docx) |
+| 24099 | 2011 |  | ISO 24099 | [24099_2010.md](extrakty/md/TC278WG7/24099_2010.md) | [.docx](extrakty/doc/TC278WG7/extract_24099_%282010%29.docx) |
 
 ---
 
