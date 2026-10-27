@@ -3,7 +3,7 @@
 Přehled extraktů z technických norem pro ITS. Sloupec **Markdown** vede na
 vygenerovaný extrakt, sloupec **Zdroj** na originál ve Wordu, ze kterého vznikl.
 
-Soubor je generovaný skriptem `skripty/gen-index.py`, naposledy 2026-10-26.
+Soubor je generovaný skriptem `skripty/gen-index.py`, naposledy 2026-10-27.
 Needituj ho ručně – změny se při příštím běhu ztratí.
 
 ## WG12 – Automatický výběr poplatků a kontrola přístupu
@@ -35,7 +35,7 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | 14819-6 | 2009 |  | EN ISO 14819-6 | [14819-6_2009.md](extrakty/md/TC278WG4/14819-6_2009.md) | [.docx](extrakty/doc/TC278WG4/extract_14819-6_%282009%29.docx) |
 | 14823 | 2008 |  | EN ISO 14823 | [14823_2008.md](extrakty/md/TC278WG4/14823_2008.md) | [.docx](extrakty/doc/TC278WG4/extract_14823_%282008%29.docx) |
 | 14823-1 | 2024 |  | EN ISO 14823-1 | [14823-1_2024.md](extrakty/md/TC278WG4/14823-1_2024.md) | [.docx](extrakty/doc/TC278WG4/extract_14823-1_%282025%29.docx) |
-| 14823-2 | 2018 |  | ISO/TR 14823-2 | [14823-2_2024.md](extrakty/md/TC278WG4/14823-2_2024.md) | [.docx](extrakty/doc/TC278WG4/extract_14823-2_%282024%29.docx) |
+| 14823-2 | 2019 |  | ISO/TR 14823-2 | [14823-2_2024.md](extrakty/md/TC278WG4/14823-2_2024.md) | [.docx](extrakty/doc/TC278WG4/extract_14823-2_%282024%29.docx) |
 | 18234-1 | 2008 |  | CEN ISO/TS 18234-1 | [18234-1_2008.md](extrakty/md/TC278WG4/18234-1_2008.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-1_%282008%29.docx) |
 | 18234-2 | 2008 |  | CEN ISO/TS 18234-2 | [18234-2_2008.md](extrakty/md/TC278WG4/18234-2_2008.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-2_%282008%29.docx) |
 | 18234-3 | 2008 |  | CEN ISO/TS 18234-3 | [18234-3_2008.md](extrakty/md/TC278WG4/18234-3_2008.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-3_%282008%29.docx) |
@@ -49,26 +49,26 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | 18234-11 | 2013 |  | CEN ISO TS 18234-11 | [18234-11_2013.md](extrakty/md/TC278WG4/18234-11_2013.md) | [.docx](extrakty/doc/TC278WG4/extract_18234-11_%282013%29.docx) |
 | 21219-1 | 2016 | TPEG2-INV | Introduction, Numbering and Versions | [21219-01_2016.md](extrakty/md/TC278WG4/21219-01_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-1_%282016%29.docx) |
 | 21219-2 | 2016 | TPEG2-UML | UML Modelling Rules | [21219-02_2016.md](extrakty/md/TC278WG4/21219-02_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-2_%282015%29.docx) |
-| 21219-3 | 2016 | TPEG2-UBCR | UML to Binary Conversion Rules | [21219-03_2016.md](extrakty/md/TC278WG4/21219-03_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-3_%282015%29.docx) |
-| 21219-4 | 2016 | TPEG2-UXCR | UML to XML Conversion Rules | [21219-04_2016.md](extrakty/md/TC278WG4/21219-04_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-4_%282015%29.docx) |
+| 21219-3 | 2015 | TPEG2-UBCR | UML to Binary Conversion Rules | [21219-03_2016.md](extrakty/md/TC278WG4/21219-03_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-3_%282015%29.docx) |
+| 21219-4 | 2015 | TPEG2-UXCR | UML to XML Conversion Rules | [21219-04_2016.md](extrakty/md/TC278WG4/21219-04_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-4_%282015%29.docx) |
 | 21219-5 | 2015 | TPEG2-SFW | Service Framework | [21219-05_2016.md](extrakty/md/TC278WG4/21219-05_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-5_%282016%29.docx) |
 | 21219-6 | 2015 | TPEG2-MMC | Message Management Container | [21219-06_2016.md](extrakty/md/TC278WG4/21219-06_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-6_%282016%29.docx) |
 | 21219-7 | 2017 | TPEG2-LRC | Location Referencing Container | [21219-07_2016.md](extrakty/md/TC278WG4/21219-07_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-7_%282017%29.docx) |
 | 21219-9 | 2016 | TPEG2-CRC | Cross Reference Container | [21219-09_2016.md](extrakty/md/TC278WG4/21219-09_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-9_%282017%29.docx) |
-| 21219-10 | 2015 | TPEG2-SNI | Service and Network Information | [21219-10_2016.md](extrakty/md/TC278WG4/21219-10_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-10_%282017%29.docx) |
+| 21219-10 | 2016 | TPEG2-SNI | Service and Network Information | [21219-10_2016.md](extrakty/md/TC278WG4/21219-10_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-10_%282017%29.docx) |
 | 21219-13 | 2025 | TPEG2-PTI | Public Transport Information application | [21219-13_2024.md](extrakty/md/TC278WG4/21219-13_2024.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-13_%282024%29.docx) |
 | 21219-14 | 2016 | TPEG2-PKI | Parking Information application | [21219-14_2016.md](extrakty/md/TC278WG4/21219-14_2016.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-14_%282019%29.docx) |
 | 21219-15 | 2016 | TPEG2-TEC | Traffic Event Compact application | [21219-15_2019.md](extrakty/md/TC278WG4/21219-15_2019.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-15_%282020%29.docx) |
 | 21219-16 | 2016 | TPEG2-FPI | Fuel Price Information application | [21219-16_2019.md](extrakty/md/TC278WG4/21219-16_2019.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-16_%282020%29.docx) |
-| 21219-17 | 2020 | TPEG2-SPI | Speed Information application | [21219-17_2022.md](extrakty/md/TC278WG4/21219-17_2022.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-17_%282022%29.docx) |
+| 21219-17 | 2023 | TPEG2-SPI | Speed Information application | [21219-17_2022.md](extrakty/md/TC278WG4/21219-17_2022.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-17_%282022%29.docx) |
 | 21219-18 | 2019 | TPEG2-TFP | Traffic Flow and Prediction application | [21219-18_2020.md](extrakty/md/TC278WG4/21219-18_2020.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-18_%282020%29.docx) |
-| 21219-19 | 2020 | TPEG2-WEA | Weather Information application | [21219-19_2022.md](extrakty/md/TC278WG4/21219-19_2022.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-19_%282022%29.docx) |
+| 21219-19 | 2023 | TPEG2-WEA | Weather Information application | [21219-19_2022.md](extrakty/md/TC278WG4/21219-19_2022.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-19_%282022%29.docx) |
 | 21219-21 | 2018 | TPEG2-GLR | Geographic Location Referencing | [21219-21_2020.md](extrakty/md/TC278WG4/21219-21_2020.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-21_%282020%29.docx) |
 | 21219-22 | 2017 | TPEG2-OLR | OpenLR Location Referencing | [21219-22_2020.md](extrakty/md/TC278WG4/21219-22_2020.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-22_%282020%29.docx) |
 | 21219-23 | 2016 | TPEG2-RMR | Road and Multimodal Routes application | [21219-23_2021.md](extrakty/md/TC278WG4/21219-23_2021.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-23_%282021%29.docx) |
 | 21219-24 | 2017 | TPEG2-LTE | Light Encryption | [21219-24_2021.md](extrakty/md/TC278WG4/21219-24_2021.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-24_%282021%29.docx) |
 | 21219-25 | 2017 | TPEG2-EMI | Electromobility Information | [21219-25_2021.md](extrakty/md/TC278WG4/21219-25_2021.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-25_%282021%29.docx) |
-| 21219-26 | 2017 | TPEG2-VLI | Vigilance Location Information | [21219-26_2022.md](extrakty/md/TC278WG4/21219-26_2022.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-26_%282022%29.docx) |
+| 21219-26 | 2018 | TPEG2-VLI | Vigilance Location Information | [21219-26_2022.md](extrakty/md/TC278WG4/21219-26_2022.md) | [.docx](extrakty/doc/TC278WG4/extract_21219-26_%282022%29.docx) |
 | 24530-1 | 2009 |  | CEN ISO/TS 24530-1 | [24530-1_2009.md](extrakty/md/TC278WG4/24530-1_2009.md) | [.docx](extrakty/doc/TC278WG4/extract_24530-1_%282009%29.docx) |
 | 24530-2 | 2009 |  | CEN ISO/TS 24530-2 | [24530-2_2009.md](extrakty/md/TC278WG4/24530-2_2009.md) | [.docx](extrakty/doc/TC278WG4/extract_24530-2_%282009%29.docx) |
 | 24530-3 | 2008 |  | CEN ISO/TS 24530-3 | [24530-3_2008.md](extrakty/md/TC278WG4/24530-3_2008.md) | [.docx](extrakty/doc/TC278WG4/extract_24530-3_%282008%29.docx) |

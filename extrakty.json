@@ -1,5 +1,5 @@
 {
-  "vygenerovano": "2026-10-26",
+  "vygenerovano": "2026-10-27",
   "extrakty": [
     {
       "kod": "14814",
@@ -248,8 +248,8 @@
       "doc": "extrakty/doc/TC278WG4/extract_14823-2_(2024).docx",
       "md": "extrakty/md/TC278WG4/14823-2_2024.md",
       "prevoditelny": true,
-      "rok_vydani": 2018,
-      "stran": 34
+      "rok_vydani": 2019,
+      "stran": 26
     },
     {
       "kod": "18234-1",
@@ -408,8 +408,8 @@
       "doc": "extrakty/doc/TC278WG4/extract_21219-3_(2015).docx",
       "md": "extrakty/md/TC278WG4/21219-03_2016.md",
       "prevoditelny": true,
-      "rok_vydani": 2016,
-      "stran": 13
+      "rok_vydani": 2015,
+      "stran": 14
     },
     {
       "kod": "21219-4",
@@ -421,8 +421,8 @@
       "doc": "extrakty/doc/TC278WG4/extract_21219-4_(2015).docx",
       "md": "extrakty/md/TC278WG4/21219-04_2016.md",
       "prevoditelny": true,
-      "rok_vydani": 2016,
-      "stran": 46
+      "rok_vydani": 2015,
+      "stran": 37
     },
     {
       "kod": "21219-5",
@@ -486,8 +486,8 @@
       "doc": "extrakty/doc/TC278WG4/extract_21219-10_(2017).docx",
       "md": "extrakty/md/TC278WG4/21219-10_2016.md",
       "prevoditelny": true,
-      "rok_vydani": 2015,
-      "stran": 19
+      "rok_vydani": 2016,
+      "stran": 7
     },
     {
       "kod": "21219-13",
@@ -500,7 +500,7 @@
       "md": "extrakty/md/TC278WG4/21219-13_2024.md",
       "prevoditelny": true,
       "rok_vydani": 2025,
-      "stran": 83
+      "stran": 73
     },
     {
       "kod": "21219-14",
@@ -551,8 +551,8 @@
       "doc": "extrakty/doc/TC278WG4/extract_21219-17_(2022).docx",
       "md": "extrakty/md/TC278WG4/21219-17_2022.md",
       "prevoditelny": true,
-      "rok_vydani": 2020,
-      "stran": 40
+      "rok_vydani": 2023,
+      "stran": 35
     },
     {
       "kod": "21219-18",
@@ -580,8 +580,8 @@
       "doc": "extrakty/doc/TC278WG4/extract_21219-19_(2022).docx",
       "md": "extrakty/md/TC278WG4/21219-19_2022.md",
       "prevoditelny": true,
-      "rok_vydani": 2020,
-      "stran": 82,
+      "rok_vydani": 2023,
+      "stran": 61,
       "starsi_vydani": [
         "extrakty/doc/TC278WG4/extract_21219-19_(2018).docx"
       ]
@@ -664,8 +664,8 @@
       "doc": "extrakty/doc/TC278WG4/extract_21219-26_(2022).docx",
       "md": "extrakty/md/TC278WG4/21219-26_2022.md",
       "prevoditelny": true,
-      "rok_vydani": 2017,
-      "stran": 40
+      "rok_vydani": 2018,
+      "stran": 23
     },
     {
       "kod": "24530-1",
