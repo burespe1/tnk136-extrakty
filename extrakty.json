@@ -1,16 +1,18 @@
 {
-  "vygenerovano": "2026-10-27",
+  "vygenerovano": "2026-10-29",
   "extrakty": [
     {
       "kod": "14814",
       "wg": "TC278WG12",
-      "oznaceni": "EN 14814",
+      "oznaceni": "EN ISO 14814",
       "nazev": "EN 14814",
       "zkratka": "",
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG12/extract_14814_(2008).docx",
       "md": "extrakty/md/TC278WG12/14814_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2006,
+      "stran": 19
     },
     {
       "kod": "14815",
@@ -21,7 +23,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG12/extract_14815_(2008).docx",
       "md": "extrakty/md/TC278WG12/14815_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2005,
+      "stran": 33
     },
     {
       "kod": "14816",
@@ -32,7 +36,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG12/extract_14816_(2008).docx",
       "md": "extrakty/md/TC278WG12/14816_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2005,
+      "stran": 42
     },
     {
       "kod": "16312",
@@ -45,40 +51,46 @@
       "md": "extrakty/md/TC278WG12/16312_2013.md",
       "prevoditelny": true,
       "rok_vydani": 2013,
-      "stran": 44
+      "stran": 46
     },
     {
       "kod": "17261",
       "wg": "TC278WG12",
-      "oznaceni": "EN ISO 17261",
+      "oznaceni": "CEN ISO/TS 17261",
       "nazev": "EN ISO 17261",
       "zkratka": "",
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG12/extract_17261_(2008).docx",
       "md": "extrakty/md/TC278WG12/17261_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2005,
+      "stran": 38
     },
     {
       "kod": "17262",
       "wg": "TC278WG12",
-      "oznaceni": "EN ISO 17262",
+      "oznaceni": "CEN ISO/TS 17262",
       "nazev": "EN ISO 17262",
       "zkratka": "",
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG12/extract_17262_(2008).docx",
       "md": "extrakty/md/TC278WG12/17262_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2003,
+      "stran": 24
     },
     {
       "kod": "17263",
       "wg": "TC278WG12",
-      "oznaceni": "EN ISO 17263",
+      "oznaceni": "CEN ISO/TS 17263",
       "nazev": "EN ISO 17263",
       "zkratka": "",
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG12/extract_17263_(2008).docx",
       "md": "extrakty/md/TC278WG12/17263_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2003,
+      "stran": 14
     },
     {
       "kod": "17264",
@@ -91,18 +103,20 @@
       "md": "extrakty/md/TC278WG12/17264_2008.md",
       "prevoditelny": true,
       "rok_vydani": 2009,
-      "stran": 30
+      "stran": 27
     },
     {
       "kod": "24534-1",
       "wg": "TC278WG12",
-      "oznaceni": "EN ISO 24534-1",
+      "oznaceni": "CEN ISO/TS 24534-1",
       "nazev": "EN ISO 24534-1",
       "zkratka": "",
       "rok_extraktu": 2009,
       "doc": "extrakty/doc/TC278WG12/extract_24534-1_(2009).docx",
       "md": "extrakty/md/TC278WG12/24534-1_2009.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2007,
+      "stran": 18
     },
     {
       "kod": "24534-2",
@@ -115,7 +129,7 @@
       "md": "extrakty/md/TC278WG12/24534-2_2010.md",
       "prevoditelny": true,
       "rok_vydani": 2010,
-      "stran": 24
+      "stran": 25
     },
     {
       "kod": "24534-3",
@@ -141,12 +155,12 @@
       "md": "extrakty/md/TC278WG12/24534-4_2010.md",
       "prevoditelny": true,
       "rok_vydani": 2010,
-      "stran": 91
+      "stran": 102
     },
     {
       "kod": "24534-5",
       "wg": "TC278WG12",
-      "oznaceni": "ISO 24534-5",
+      "oznaceni": "ISO/TS 24534-5",
       "nazev": "ISO 24534-5",
       "zkratka": "",
       "rok_extraktu": 2010,
@@ -154,7 +168,7 @@
       "md": "extrakty/md/TC278WG12/24534-5_2010.md",
       "prevoditelny": true,
       "rok_vydani": 2008,
-      "stran": 43
+      "stran": 38
     },
     {
       "kod": "24535",
@@ -167,7 +181,7 @@
       "md": "extrakty/md/TC278WG12/24535_2010.md",
       "prevoditelny": true,
       "rok_vydani": 2007,
-      "stran": 15
+      "stran": 11
     },
     {
       "kod": "14819-1",
@@ -180,7 +194,7 @@
       "md": "extrakty/md/TC278WG4/14819-1__2021.md",
       "prevoditelny": true,
       "rok_vydani": 2021,
-      "stran": 54,
+      "stran": 66,
       "starsi_vydani": [
         "extrakty/doc/TC278WG4/extract_14819-1_(2009).docx"
       ]
@@ -196,7 +210,7 @@
       "md": "extrakty/md/TC278WG4/14819-2__2021.md",
       "prevoditelny": true,
       "rok_vydani": 2021,
-      "stran": 209,
+      "stran": 127,
       "starsi_vydani": [
         "extrakty/doc/TC278WG4/extract_14819-2_(2009).docx"
       ]
@@ -211,8 +225,8 @@
       "doc": "extrakty/doc/TC278WG4/extract_14819-3_(2023).docx",
       "md": "extrakty/md/TC278WG4/14819-3__2021.md",
       "prevoditelny": true,
-      "rok_vydani": 2023,
-      "stran": 73,
+      "rok_vydani": 2021,
+      "stran": 77,
       "starsi_vydani": [
         "extrakty/doc/TC278WG4/extract_14819-3_(2009).docx"
       ]
@@ -226,18 +240,22 @@
       "rok_extraktu": 2009,
       "doc": "extrakty/doc/TC278WG4/extract_14819-6_(2009).docx",
       "md": "extrakty/md/TC278WG4/14819-6_2009.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2006,
+      "stran": 26
     },
     {
       "kod": "14823",
       "wg": "TC278WG4",
-      "oznaceni": "EN ISO 14823",
+      "oznaceni": "CEN ISO/TS 14823",
       "nazev": "EN ISO 14823",
       "zkratka": "",
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG4/extract_14823_(2008).docx",
       "md": "extrakty/md/TC278WG4/14823_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2008,
+      "stran": 181
     },
     {
       "kod": "14823-1",
@@ -250,7 +268,7 @@
       "md": "extrakty/md/TC278WG4/14823-1_2024.md",
       "prevoditelny": true,
       "rok_vydani": 2024,
-      "stran": 73
+      "stran": 81
     },
     {
       "kod": "14823-2",
@@ -274,7 +292,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG4/extract_18234-1_(2008).docx",
       "md": "extrakty/md/TC278WG4/18234-1_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2006,
+      "stran": 13
     },
     {
       "kod": "18234-2",
@@ -285,7 +305,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG4/extract_18234-2_(2008).docx",
       "md": "extrakty/md/TC278WG4/18234-2_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2006,
+      "stran": 40
     },
     {
       "kod": "18234-3",
@@ -296,7 +318,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG4/extract_18234-3_(2008).docx",
       "md": "extrakty/md/TC278WG4/18234-3_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2006,
+      "stran": 37
     },
     {
       "kod": "18234-4",
@@ -307,7 +331,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG4/extract_18234-4_(2008).docx",
       "md": "extrakty/md/TC278WG4/18234-4_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2006,
+      "stran": 106
     },
     {
       "kod": "18234-5",
@@ -318,7 +344,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG4/extract_18234-5_(2008).docx",
       "md": "extrakty/md/TC278WG4/18234-5_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2006,
+      "stran": 66
     },
     {
       "kod": "18234-6",
@@ -329,12 +357,14 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG4/extract_18234-6_(2008).docx",
       "md": "extrakty/md/TC278WG4/18234-6_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2006,
+      "stran": 84
     },
     {
       "kod": "18234-7",
       "wg": "TC278WG4",
-      "oznaceni": "CEN ISO TS 18234-7",
+      "oznaceni": "CEN ISO/TS 18234-7",
       "nazev": "CEN ISO TS 18234-7",
       "zkratka": "",
       "rok_extraktu": 2012,
@@ -342,12 +372,12 @@
       "md": "extrakty/md/TC278WG4/18234-7_2012.md",
       "prevoditelny": true,
       "rok_vydani": 2013,
-      "stran": 106
+      "stran": 104
     },
     {
       "kod": "18234-8",
       "wg": "TC278WG4",
-      "oznaceni": "ISO TS 18234-8",
+      "oznaceni": "ISO/TS 18234-8",
       "nazev": "ISO TS 18234-8",
       "zkratka": "",
       "rok_extraktu": 2012,
@@ -355,12 +385,12 @@
       "md": "extrakty/md/TC278WG4/18234-8_2012.md",
       "prevoditelny": true,
       "rok_vydani": 2012,
-      "stran": 25
+      "stran": 20
     },
     {
       "kod": "18234-9",
       "wg": "TC278WG4",
-      "oznaceni": "CEN ISO TS 18234-9",
+      "oznaceni": "CEN ISO/TS 18234-9",
       "nazev": "CEN ISO TS 18234-9",
       "zkratka": "",
       "rok_extraktu": 2012,
@@ -368,12 +398,12 @@
       "md": "extrakty/md/TC278WG4/18234-9_2012.md",
       "prevoditelny": true,
       "rok_vydani": 2013,
-      "stran": 109
+      "stran": 106
     },
     {
       "kod": "18234-10",
       "wg": "TC278WG4",
-      "oznaceni": "CEN ISO TS 18234-10",
+      "oznaceni": "CEN ISO/TS 18234-10",
       "nazev": "CEN ISO TS 18234-10",
       "zkratka": "",
       "rok_extraktu": 2013,
@@ -381,12 +411,12 @@
       "md": "extrakty/md/TC278WG4/18234-10_2013.md",
       "prevoditelny": true,
       "rok_vydani": 2013,
-      "stran": 48
+      "stran": 57
     },
     {
       "kod": "18234-11",
       "wg": "TC278WG4",
-      "oznaceni": "CEN ISO TS 18234-11",
+      "oznaceni": "CEN ISO/TS 18234-11",
       "nazev": "CEN ISO TS 18234-11",
       "zkratka": "",
       "rok_extraktu": 2013,
@@ -394,12 +424,12 @@
       "md": "extrakty/md/TC278WG4/18234-11_2013.md",
       "prevoditelny": true,
       "rok_vydani": 2013,
-      "stran": 48
+      "stran": 59
     },
     {
       "kod": "21219-1",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-1",
+      "oznaceni": "ISO/TS 21219-1",
       "nazev": "Introduction, Numbering and Versions",
       "zkratka": "TPEG2-INV",
       "rok_extraktu": 2016,
@@ -407,12 +437,12 @@
       "md": "extrakty/md/TC278WG4/21219-01_2016.md",
       "prevoditelny": true,
       "rok_vydani": 2016,
-      "stran": 20
+      "stran": 9
     },
     {
       "kod": "21219-2",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-2",
+      "oznaceni": "ISO/TS 21219-2",
       "nazev": "UML Modelling Rules",
       "zkratka": "TPEG2-UML",
       "rok_extraktu": 2015,
@@ -420,12 +450,12 @@
       "md": "extrakty/md/TC278WG4/21219-02_2016.md",
       "prevoditelny": true,
       "rok_vydani": 2014,
-      "stran": 43
+      "stran": 44
     },
     {
       "kod": "21219-3",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-3",
+      "oznaceni": "ISO/TS 21219-3",
       "nazev": "UML to Binary Conversion Rules",
       "zkratka": "TPEG2-UBCR",
       "rok_extraktu": 2015,
@@ -438,7 +468,7 @@
     {
       "kod": "21219-4",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-4",
+      "oznaceni": "ISO/TS 21219-4",
       "nazev": "UML to XML Conversion Rules",
       "zkratka": "TPEG2-UXCR",
       "rok_extraktu": 2015,
@@ -451,7 +481,7 @@
     {
       "kod": "21219-5",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-5",
+      "oznaceni": "ISO/TS 21219-5",
       "nazev": "Service Framework",
       "zkratka": "TPEG2-SFW",
       "rok_extraktu": 2016,
@@ -459,12 +489,12 @@
       "md": "extrakty/md/TC278WG4/21219-05_2016.md",
       "prevoditelny": true,
       "rok_vydani": 2015,
-      "stran": 46
+      "stran": 37
     },
     {
       "kod": "21219-6",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-6",
+      "oznaceni": "ISO/TS 21219-6",
       "nazev": "Message Management Container",
       "zkratka": "TPEG2-MMC",
       "rok_extraktu": 2016,
@@ -472,12 +502,12 @@
       "md": "extrakty/md/TC278WG4/21219-06_2016.md",
       "prevoditelny": true,
       "rok_vydani": 2015,
-      "stran": 28
+      "stran": 18
     },
     {
       "kod": "21219-7",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-7",
+      "oznaceni": "ISO/TS 21219-7",
       "nazev": "Location Referencing Container",
       "zkratka": "TPEG2-LRC",
       "rok_extraktu": 2017,
@@ -485,12 +515,12 @@
       "md": "extrakty/md/TC278WG4/21219-07_2016.md",
       "prevoditelny": true,
       "rok_vydani": 2017,
-      "stran": 20
+      "stran": 13
     },
     {
       "kod": "21219-9",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-9",
+      "oznaceni": "ISO/TS 21219-9",
       "nazev": "Cross Reference Container",
       "zkratka": "TPEG2-CRC",
       "rok_extraktu": 2017,
@@ -503,7 +533,7 @@
     {
       "kod": "21219-10",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-10",
+      "oznaceni": "ISO/TS 21219-10",
       "nazev": "Service and Network Information",
       "zkratka": "TPEG2-SNI",
       "rok_extraktu": 2017,
@@ -516,7 +546,7 @@
     {
       "kod": "21219-13",
       "wg": "TC278WG4",
-      "oznaceni": "ISO TS 21219-13",
+      "oznaceni": "ISO/TS 21219-13",
       "nazev": "Public Transport Information application",
       "zkratka": "TPEG2-PTI",
       "rok_extraktu": 2024,
@@ -529,7 +559,7 @@
     {
       "kod": "21219-14",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-14",
+      "oznaceni": "ISO/TS 21219-14",
       "nazev": "Parking Information application",
       "zkratka": "TPEG2-PKI",
       "rok_extraktu": 2019,
@@ -537,12 +567,12 @@
       "md": "extrakty/md/TC278WG4/21219-14_2016.md",
       "prevoditelny": true,
       "rok_vydani": 2016,
-      "stran": 83
+      "stran": 50
     },
     {
       "kod": "21219-15",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-15",
+      "oznaceni": "ISO/TS 21219-15",
       "nazev": "Traffic Event Compact application",
       "zkratka": "TPEG2-TEC",
       "rok_extraktu": 2019,
@@ -550,12 +580,12 @@
       "md": "extrakty/md/TC278WG4/21219-15_2019.md",
       "prevoditelny": true,
       "rok_vydani": 2016,
-      "stran": 95
+      "stran": 63
     },
     {
       "kod": "21219-16",
       "wg": "TC278WG4",
-      "oznaceni": "ISO  21219-16",
+      "oznaceni": "ISO/TS 21219-16",
       "nazev": "Fuel Price Information application",
       "zkratka": "TPEG2-FPI",
       "rok_extraktu": 2020,
@@ -563,7 +593,7 @@
       "md": "extrakty/md/TC278WG4/21219-16_2019.md",
       "prevoditelny": true,
       "rok_vydani": 2016,
-      "stran": 76
+      "stran": 62
     },
     {
       "kod": "21219-17",
@@ -597,7 +627,7 @@
     {
       "kod": "21219-19",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-19",
+      "oznaceni": "ISO/TS 21219-19",
       "nazev": "Weather Information application",
       "zkratka": "TPEG2-WEA",
       "rok_extraktu": 2022,
@@ -613,7 +643,7 @@
     {
       "kod": "21219-21",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-21",
+      "oznaceni": "ISO/TS 21219-21",
       "nazev": "Geographic Location Referencing",
       "zkratka": "TPEG2-GLR",
       "rok_extraktu": 2020,
@@ -668,7 +698,7 @@
     {
       "kod": "21219-25",
       "wg": "TC278WG4",
-      "oznaceni": "ISO 21219-25",
+      "oznaceni": "ISO/TS 21219-25",
       "nazev": "Electromobility Information",
       "zkratka": "TPEG2-EMI",
       "rok_extraktu": 2021,
@@ -700,7 +730,9 @@
       "rok_extraktu": 2009,
       "doc": "extrakty/doc/TC278WG4/extract_24530-1_(2009).docx",
       "md": "extrakty/md/TC278WG4/24530-1_2009.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2006,
+      "stran": 19
     },
     {
       "kod": "24530-2",
@@ -711,7 +743,9 @@
       "rok_extraktu": 2009,
       "doc": "extrakty/doc/TC278WG4/extract_24530-2_(2009).docx",
       "md": "extrakty/md/TC278WG4/24530-2_2009.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2006,
+      "stran": 47
     },
     {
       "kod": "24530-3",
@@ -722,7 +756,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG4/extract_24530-3_(2008).docx",
       "md": "extrakty/md/TC278WG4/24530-3_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2006,
+      "stran": 59
     },
     {
       "kod": "24530-4",
@@ -733,7 +769,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG4/extract_24530-4_(2008).docx",
       "md": "extrakty/md/TC278WG4/24530-4_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2006,
+      "stran": 38
     },
     {
       "kod": "12813",
@@ -744,23 +782,27 @@
       "rok_extraktu": 2010,
       "doc": "extrakty/doc/TC278WG5/extract_12813_(2010).docx",
       "md": "extrakty/md/TC278WG5/12813_2010.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2009,
+      "stran": 44
     },
     {
       "kod": "14907-2",
       "wg": "TC278WG5",
-      "oznaceni": "EN ISO 14907-2",
+      "oznaceni": "CEN ISO/TS 14907-2",
       "nazev": "EN ISO 14907-2",
       "zkratka": "",
       "rok_extraktu": 2012,
       "doc": "extrakty/doc/TC278WG5/extract_14907-2_(2012).docx",
       "md": "extrakty/md/TC278WG5/14907-2_2012.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2011,
+      "stran": 79
     },
     {
       "kod": "15762",
       "wg": "TC278WG5",
-      "oznaceni": "EN 15762",
+      "oznaceni": "CEN/TR 15762",
       "nazev": "EN 15762",
       "zkratka": "",
       "rok_extraktu": 2014,
@@ -779,23 +821,27 @@
       "rok_extraktu": 2010,
       "doc": "extrakty/doc/TC278WG5/extract_15876-1_(2010).docx",
       "md": "extrakty/md/TC278WG5/15876-1_2010.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2010,
+      "stran": 114
     },
     {
       "kod": "16092",
       "wg": "TC278WG5",
-      "oznaceni": "CEN ISO/TS 16092",
+      "oznaceni": "CEN/TR 16092",
       "nazev": "CEN ISO/TS 16092",
       "zkratka": "",
       "rok_extraktu": 2012,
       "doc": "extrakty/doc/TC278WG5/extract_16092_(2012).docx",
       "md": "extrakty/md/TC278WG5/16092_2012.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2011,
+      "stran": 40
     },
     {
       "kod": "16152",
       "wg": "TC278WG5",
-      "oznaceni": "EN 16152",
+      "oznaceni": "CEN/TR 16152",
       "nazev": "EN 16152",
       "zkratka": "",
       "rok_extraktu": 2012,
@@ -808,13 +854,15 @@
     {
       "kod": "16219",
       "wg": "TC278WG5",
-      "oznaceni": "EN 16219",
+      "oznaceni": "CEN/TR 16219",
       "nazev": "EN 16219",
       "zkratka": "",
       "rok_extraktu": 2013,
       "doc": "extrakty/doc/TC278WG5/extract_16219_(2013).docx",
       "md": "extrakty/md/TC278WG5/16219_2014.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2011,
+      "stran": 80
     },
     {
       "kod": "16403-2",
@@ -825,7 +873,9 @@
       "rok_extraktu": 2014,
       "doc": "extrakty/doc/TC278WG5/extract_16403-2_(2014).docx",
       "md": "extrakty/md/TC278WG5/16403-2_2014.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2012,
+      "stran": 19
     },
     {
       "kod": "16410-2",
@@ -843,18 +893,20 @@
     {
       "kod": "16439",
       "wg": "TC278WG5",
-      "oznaceni": "EN 16439",
+      "oznaceni": "CEN/TS 16439",
       "nazev": "EN 16439",
       "zkratka": "",
       "rok_extraktu": 2014,
       "doc": "extrakty/doc/TC278WG5/extract_16439_(2014).docx",
       "md": "extrakty/md/TC278WG5/16439_2014.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2013,
+      "stran": 141
     },
     {
       "kod": "16690",
       "wg": "TC278WG5",
-      "oznaceni": "CEN ISO/TS 16690",
+      "oznaceni": "CEN/TR 16690",
       "nazev": "CEN ISO/TS 16690",
       "zkratka": "",
       "rok_extraktu": 2014,
@@ -875,7 +927,7 @@
       "md": "extrakty/md/TC278WG5/17444-2_2014.md",
       "prevoditelny": true,
       "rok_vydani": 2013,
-      "stran": 104
+      "stran": 93
     },
     {
       "kod": "14296",
@@ -899,7 +951,9 @@
       "rok_extraktu": 2008,
       "doc": "extrakty/doc/TC278WG7/extract_14825_(2008).docx",
       "md": "extrakty/md/TC278WG7/14825_2008.md",
-      "prevoditelny": true
+      "prevoditelny": true,
+      "rok_vydani": 2004,
+      "stran": 590
     },
     {
       "kod": "17267",
@@ -912,7 +966,7 @@
       "md": "extrakty/md/TC278WG7/17267_2009.md",
       "prevoditelny": true,
       "rok_vydani": 2009,
-      "stran": 179
+      "stran": 139
     },
     {
       "kod": "17572-1",
@@ -967,12 +1021,12 @@
       "md": "extrakty/md/TC278WG7/20452_2009.md",
       "prevoditelny": true,
       "rok_vydani": 2007,
-      "stran": 60
+      "stran": 54
     },
     {
       "kod": "22726-1",
       "wg": "TC278WG7",
-      "oznaceni": "ISO TS 22726-1",
+      "oznaceni": "ISO/TS 22726-1",
       "nazev": "ISO TS 22726-1",
       "zkratka": "",
       "rok_extraktu": 2025,
@@ -993,7 +1047,7 @@
       "md": "extrakty/md/TC278WG7/24099_2010.md",
       "prevoditelny": true,
       "rok_vydani": 2011,
-      "stran": 62
+      "stran": 52
     }
   ]
 }
