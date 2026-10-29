@@ -5,15 +5,18 @@ name: Převod extraktů do Markdownu
 # Spouštěcí cesta (extrakty/doc/**) se nepřekrývá s tím, co workflow zapisuje,
 # takže se sám od sebe nespustí donekonečna.
 
+# Automatické spouštění po pushi je dočasně vypnuté (29. 10. 2026):
+# převod se dělá lokálně a commit z GitHubu kolidoval s lokálními commity.
+# Ruční spuštění zůstává (Actions → Převod extraktů do Markdownu → Run workflow).
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'extrakty/doc/**'
-      - 'skripty/docx2md.py'
-      - 'skripty/gen-registr.py'
-      - 'skripty/gen-index.py'
-      - '.github/workflows/docx2md.yml'
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - 'extrakty/doc/**'
+  #     - 'skripty/docx2md.py'
+  #     - 'skripty/gen-registr.py'
+  #     - 'skripty/gen-index.py'
+  #     - '.github/workflows/docx2md.yml'
   workflow_dispatch:
     inputs:
       vse:

@@ -32,9 +32,10 @@ python skripty/docx2md.py --soubory extrakty/doc/TC278WG4/extract_14819-1_(2023)
 python skripty/gen-index.py          # přegeneruje index.md
 ```
 
-Na GitHubu totéž dělá workflow `.github/workflows/docx2md.yml`: po pushi
-změněného `.docx` převede právě ty Wordy, které se v pushi změnily, a výsledek
-commitne zpět. Ručně spuštěný workflow s volbou „vše“ převede všechno.
+Na GitHubu je stejný převod ve workflow `.github/workflows/docx2md.yml`.
+Automatické spouštění po pushi je od 29. 10. 2026 vypnuté, převádí se lokálně
+před commitem. Workflow jde spustit ručně (Actions → Run workflow): převede
+změněné Wordy a výsledek commitne zpět, s volbou „vše“ převede všechno.
 
 Potřebuje **pandoc**. Kresby z tvarů, vložené objekty a obrázky EMF převádí přes
 **LibreOffice** a **pdftoppm** (poppler-utils) a Python balíčky `python-docx` a `pillow`;
