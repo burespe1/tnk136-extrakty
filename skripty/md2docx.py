@@ -88,8 +88,9 @@ def sirky_sloupcu(tbl, body):
             j += k
     ZNAK = 125                                    # přibližná šířka znaku v twipech (Arial 10 pt)
     minimum = [min(s, 25) * ZNAK + 330 for s in slovo]
-    if sum(minimum) >= celkem:
-        sirky = [celkem * m // sum(minimum) for m in minimum]
+    if sum(minimum) >= celkem:                    # nevejde se: dlouhým textům víc místa než jednotlivým slovům
+        vahy = [max(min(s, 15), 3 * d ** 0.5) for s, d in zip(slovo, nejdelsi)]
+        sirky = [int(celkem * v / sum(vahy)) for v in vahy]
     else:
         navic = [max(0, d * ZNAK + 330 - m) for d, m in zip(nejdelsi, minimum)]
         zbyva = celkem - sum(minimum)
