@@ -1,0 +1,52 @@
+name: Sestavení extraktů (docx a pdf)
+
+# Zdrojem pravdy je Markdown v extrakty/<WG>/. Workflow z něj sestaví Word a PDF
+# a nabídne je ke stažení jako artefakt běhu. Do repozitáře nic nezapisuje.
+# Spouští se ručně (Actions → Sestavení extraktů → Run workflow); automatické
+# spouštění po pushi jde zapnout odkomentováním bloku push níže.
+on:
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - 'extrakty/**'
+  #     - 'sablona/**'
+  #     - 'skripty/md2docx.py'
+  workflow_dispatch:
+    inputs:
+      soubory:
+        description: 'Jen vybrané extrakty (cesty k .md oddělené mezerou); prázdné = všechny'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Nainstalovat pandoc 3, LibreOffice a knihovny
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libreoffice-writer fonts-liberation
+          pip install pypandoc_binary python-docx pyyaml lxml pillow
+
+      - name: Registr a index (kontrola metadat)
+        run: |
+          python skripty/gen-registr.py
+          python skripty/gen-index.py
+
+      - name: Sestavit docx a pdf
+        run: python skripty/md2docx.py ${{ inputs.soubory }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: extrakty-build
+          path: build/
+          retention-days: 30

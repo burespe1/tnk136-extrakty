@@ -17,3 +17,6 @@ __pycache__/
 # texty samotnych norem do repozitare nepatri (autorska prava)
 zdroje-norem/
 *_PRILOHA*.docx
+
+# sestavené docx a pdf (generuje skripty/md2docx.py)
+build/

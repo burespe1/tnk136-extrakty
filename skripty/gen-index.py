@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """Přegeneruje index.md z registru extrakty.json.
 
 Použití:
     python skripty/gen-index.py
 """
-
 from __future__ import annotations
 
 import json
-import re
 from datetime import date
 from pathlib import Path
 
@@ -19,69 +16,43 @@ INDEX = KOREN / "index.md"
 
 NAZVY_WG = {
     "TC278WG4": "WG4 – Dopravní a cestovní informace (TTI)",
+    "TC278WG5": "WG5 – Elektronický výběr poplatků (EFC)",
     "TC278WG7": "WG7 – Geografické datové soubory a určování polohy",
-    "TC278WG12": "WG12 – Automatický výběr poplatků a kontrola přístupu",
+    "TC278WG12": "WG12 – Automatická identifikace vozidel a zařízení (AVI/AEI)",
 }
-
-
-def odkaz_cesta(cesta: str) -> str:
-    """Závorky v názvech souborů by rozbily odkaz, proto je zakóduje."""
-    return cesta.replace("(", "%28").replace(")", "%29").replace(" ", "%20")
+PORADI_WG = ["TC278WG4", "TC278WG5", "TC278WG7", "TC278WG12"]
 
 
 def radek(z: dict) -> str:
-    md_cesta = KOREN / z["md"]
-    if md_cesta.exists():
-        odkaz = f"[{Path(z['md']).name}]({odkaz_cesta(z['md'])})"
-    else:
-        odkaz = "–"
-    doc = f"[.{Path(z['doc']).suffix.lstrip('.')}]({odkaz_cesta(z['doc'])})" if z.get("doc") else "–"
-    rok = z.get("rok_vydani") or z.get("rok_extraktu") or ""
-    return "| {kod} | {rok} | {zkratka} | {nazev} | {md} | {doc} |".format(
-        kod=z["kod"], rok=rok, zkratka=z.get("zkratka") or "",
-        nazev=z.get("nazev") or z.get("oznaceni") or "", md=odkaz, doc=doc,
-    )
+    extrakt = str(z["zpracovano"]) + (f" (akt. {z['upraveno']})" if z.get("upraveno") else "")
+    nazev = str(z["nazev"]).replace("|", "\\|")
+    return (f"| {z['oznaceni']}:{z['vydani']} | {z.get('zkratka') or ''} | {nazev} | {extrakt} "
+            f"| [{Path(z['md']).name}]({z['md']}) |")
 
 
 def main() -> int:
     if not REGISTR.exists():
         raise SystemExit("Chybí extrakty.json – spusť nejdřív skripty/gen-registr.py.")
     polozky = json.loads(REGISTR.read_text(encoding="utf-8"))["extrakty"]
-
     radky = [
         "# 📚 Index extraktů",
         "",
-        "Přehled extraktů z technických norem pro ITS. Sloupec **Markdown** vede na",
-        "vygenerovaný extrakt, sloupec **Zdroj** na originál ve Wordu, ze kterého vznikl.",
+        "Přehled extraktů z technických norem pro ITS. Sloupec **Norma** uvádí popisované",
+        "vydání ISO/CEN, sloupec **Extrakt** rok zpracování (a poslední věcné úpravy) extraktu.",
         "",
         f"Soubor je generovaný skriptem `skripty/gen-index.py`, naposledy {date.today().isoformat()}.",
         "Needituj ho ručně – změny se při příštím běhu ztratí.",
         "",
     ]
-
-    for wg in sorted({z["wg"] for z in polozky}):
-        vybrane = [z for z in polozky if z["wg"] == wg]
-        vybrane.sort(key=lambda z: [int(c) for c in re.findall(r"\d+", z["kod"])])
-        radky += [
-            f"## {NAZVY_WG.get(wg, wg)}",
-            "",
-            "| Norma | Vydání | Zkratka | Název | Markdown | Zdroj |",
-            "|---|---|---|---|---|---|",
-        ]
-        radky += [radek(z) for z in vybrane]
+    wgs = sorted({z["wg"] for z in polozky}, key=lambda w: (PORADI_WG.index(w) if w in PORADI_WG else 99, w))
+    for wg in wgs:
+        radky += [f"## {NAZVY_WG.get(wg, wg)}", "",
+                  "| Norma | Zkratka | Název | Extrakt | Markdown |", "|---|---|---|---|---|"]
+        radky += [radek(z) for z in polozky if z["wg"] == wg]
         radky.append("")
-
-    celkem = len(polozky)
-    s_md = sum(1 for z in polozky if (KOREN / z["md"]).exists())
-    radky += [
-        "---",
-        "",
-        f"Celkem {celkem} extraktů, z toho {s_md} dostupných v Markdownu.",
-        "",
-    ]
-
+    radky += ["---", "", f"Celkem {len(polozky)} extraktů.", ""]
     INDEX.write_text("\n".join(radky), encoding="utf-8")
-    print(f"Zapsáno {INDEX.name}: {celkem} extraktů, {s_md} v Markdownu.")
+    print(f"Zapsáno {INDEX.name}: {len(polozky)} extraktů.")
     return 0
 
 

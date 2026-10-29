@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Převod extraktů z Wordu do Markdownu.
+"""Převod Wordu do Markdownu (pandoc + úpravy pro extrakty TNK 136).
 
-Zdrojem pravdy je .docx v extrakty/doc/<WG>/. Markdown v extrakty/md/<WG>/
-a obrázky v extrakty/md/<WG>/img/ se generují tímto skriptem.
+Zdrojem pravdy je od listopadu 2026 Markdown v extrakty/<WG>/. Tento modul
+používá import připomínek (skripty/pripominky.py); samostatně poslouží pro
+převod nového extraktu napsaného ve Wordu:
 
-Použití:
-    python skripty/docx2md.py                 # převede, co je potřeba
-    python skripty/docx2md.py 14819-1         # jen vybrané kódy norem
-    python skripty/docx2md.py --vse           # převede znovu i to, co je aktuální
-    python skripty/docx2md.py --kontrola      # nic nezapisuje, jen ohlásí rozdíly
+    python skripty/docx2md.py NOVY.docx extrakty/TC278WG4/12345_2025.md
 
-Vyžaduje pandoc. Staré binární .doc se převedou přes LibreOffice (soffice),
-pokud je k dispozici; jinak se přeskočí.
+Výsledek je surový převod – hlavičku s metadaty (--- … ---) je třeba doplnit
+podle ostatních extraktů. Vyžaduje pandoc; staré .doc převede LibreOffice.
 """
 
 from __future__ import annotations
@@ -29,16 +26,9 @@ import zipfile
 from pathlib import Path
 
 KOREN = Path(__file__).resolve().parent.parent
-REGISTR = KOREN / "extrakty.json"
 
 TITULEK = "EXTRAKT z české technické normy"
 OBRAZKOVE_PRIPONY = {".png", ".jpg", ".jpeg", ".gif", ".emf", ".wmf", ".bmp", ".tif", ".tiff"}
-
-
-def nacti_registr() -> list[dict]:
-    if not REGISTR.exists():
-        sys.exit(f"Chybí registr {REGISTR}. Spusť nejdřív skripty/gen-registr.py.")
-    return json.loads(REGISTR.read_text(encoding="utf-8"))["extrakty"]
 
 
 # --------------------------------------------------------------------------
@@ -460,7 +450,7 @@ def vykresli_skupiny(zdroj: Path, tmp: Path) -> Path:
     return cil
 
 
-XML_RADEK = re.compile(r"^[ \t]*\\<[/?!a-zA-Z]")
+XML_RADEK = re.compile(r"^[ \t]*\\<\\?[/?!a-zA-Z]")
 
 
 def kod_z_odstavcu(text: str) -> str:
@@ -475,7 +465,8 @@ def kod_z_odstavcu(text: str) -> str:
         if XML_RADEK.match(radky[i]):
             j, blok = i, []
             while j < len(radky) and (XML_RADEK.match(radky[j]) or not radky[j].strip()
-                                      or radky[j].strip() in ("…", "...")):
+                                      or radky[j].strip() in ("…", "...")
+                                      or (blok and not blok[-1].rstrip().endswith(">"))):  # pokračování tagu
                 if radky[j].strip():
                     blok.append(radky[j])
                 j += 1
@@ -634,78 +625,19 @@ def prevod(docx: Path, img_dir: Path, zaklad: str) -> str:
 # --------------------------------------------------------------------------
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Převede extrakty z Wordu do Markdownu.")
-    ap.add_argument("kody", nargs="*", help="kódy norem k převodu (např. 14819-1); bez nich se bere vše")
-    ap.add_argument("--vse", action="store_true", help="převést i to, co je aktuální")
-    ap.add_argument("--kontrola", action="store_true", help="nic nezapisovat, jen ohlásit rozdíly")
-    ap.add_argument("--soubory", nargs="+", metavar="CESTA",
-                    help="převést jen extrakty s těmito zdrojovými Wordy (cesty od kořene repozitáře)")
+    ap = argparse.ArgumentParser(description="Převede Word extraktu do Markdownu (bez metadat).")
+    ap.add_argument("docx", type=Path, help="zdrojový .docx (nebo .doc)")
+    ap.add_argument("md", type=Path, help="cílový .md; obrázky se uloží do img/ vedle něj")
     args = ap.parse_args()
-
     if not shutil.which("pandoc"):
         sys.exit("Chybí pandoc. Nainstaluj ho a spusť znovu.")
-
-    polozky = nacti_registr()
-    if args.soubory:
-        chtene_doc = {Path(s).as_posix() for s in args.soubory}
-        polozky = [p for p in polozky if p.get("doc") in chtene_doc]
-        args.vse = True                 # v CI nejde spoléhat na čas změny souborů
-        if not polozky:
-            print("Žádný z uvedených Wordů není v registru, není co převádět.")
-            return 0
-    if args.kody:
-        chtene = set(args.kody)
-        polozky = [p for p in polozky if p["kod"] in chtene]
-        if not polozky:
-            sys.exit("Žádný z uvedených kódů není v registru.")
-
-    prevedeno = aktualni = preskoceno = chyby = 0
-
-    for p in polozky:
-        if not p.get("doc"):
-            continue
-        docx = KOREN / p["doc"]
-        md_cil = KOREN / p["md"]
-        if not docx.exists():
-            print(f"CHYBÍ      {p['kod']}: {p['doc']}")
-            chyby += 1
-            continue
-        if not args.vse and md_cil.exists() and md_cil.stat().st_mtime >= docx.stat().st_mtime:
-            aktualni += 1
-            continue
-
-        try:
-            if args.kontrola:
-                # při kontrole se nesmí nic zapsat, ani obrázky
-                with tempfile.TemporaryDirectory() as t:
-                    text = prevod(docx, Path(t) / "img", md_cil.stem)
-            else:
-                text = prevod(docx, md_cil.parent / "img", md_cil.stem)
-        except RuntimeError as e:
-            print(f"PŘESKOČENO {p['kod']}: {e}")
-            preskoceno += 1
-            continue
-        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
-            chyba = getattr(e, "stderr", b"") or b""
-            radky = chyba.decode("utf-8", "replace").strip().splitlines()
-            print(f"CHYBA      {p['kod']}: {radky[-1] if radky else e}")
-            chyby += 1
-            continue
-
-        if args.kontrola:
-            stary = md_cil.read_text(encoding="utf-8") if md_cil.exists() else ""
-            print(f"{'beze změny' if stary == text else 'LIŠÍ SE':11} {p['kod']} → {p['md']}")
-        else:
-            md_cil.parent.mkdir(parents=True, exist_ok=True)
-            md_cil.write_text(text, encoding="utf-8")
-            print(f"PŘEVEDENO  {p['kod']} → {p['md']}")
-        prevedeno += 1
-
-    print(
-        f"\nHotovo: {prevedeno} převedeno, {aktualni} už bylo aktuálních, "
-        f"{preskoceno} přeskočeno, {chyby} chyb."
-    )
-    return 1 if chyby else 0
+    if args.md.exists():
+        sys.exit(f"{args.md} už existuje – pro úpravy existujícího extraktu použij pripominky.py.")
+    text = prevod(args.docx, args.md.parent / "img", args.md.stem)
+    args.md.parent.mkdir(parents=True, exist_ok=True)
+    args.md.write_text(text, encoding="utf-8")
+    print(f"Převedeno {args.docx} → {args.md} (doplň hlavičku s metadaty)")
+    return 0
 
 
 if __name__ == "__main__":
