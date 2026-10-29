@@ -39,7 +39,7 @@ vydani: 2016
 stran: 62
 zpracovano: 2020                   # rok zpracování extraktu
 upraveno:                          # rok poslední věcné úpravy extraktu (nepovinné)
-ics: "ICS …"                       # nepovinné
+ics: "ICS …"                       # nepovinné, jen v registru (do záhlaví se podle metodiky neuvádí)
 ---
 ```
 
@@ -98,7 +98,7 @@ skripty/
 └── gen-index.py      # přegeneruje index.md
 extrakty.json         # registr všech extraktů (generovaný)
 index.md              # přehled s odkazy (generovaný)
-metodika/             # metodika a šablony TNK 136
+metodika/             # metodika TNK 136, přílohy A–F a šablona Extrakt_šablona.docx (struktura jako extrakty v repozitáři)
 ```
 
 Wordy ve stavu před přechodem na Markdown (29. 10. 2026) jsou v archivu

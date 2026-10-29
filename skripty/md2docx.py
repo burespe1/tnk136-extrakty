@@ -45,10 +45,7 @@ def hlavicka(meta):
     prepis(extr, f"Extrakt zpracován {meta['zpracovano']}" + (f", aktualizován {meta['upraveno']}" if meta.get('upraveno') else ''))
     for e in (titul, upoz, tab, vyd, extr):    # šablona má zástupné údaje zvýrazněné
         for h in list(e.iter(qn('w:highlight'))): h.getparent().remove(h)
-    vysl = [titul, upoz]
-    if meta.get('ics'):
-        ics = copy.deepcopy(upoz); prepis(ics, meta['ics']); vysl.append(ics)
-    return vysl + [tab, vyd, extr]
+    return [titul, upoz, tab, vyd, extr]      # ICS se podle metodiky (příloha B) v záhlaví neuvádí
 
 def upravy_tabulek(body):
     """Tabulky z pandocu: ohraničení, šířka přes celou sazbu (šablona nemá styl Table)."""
