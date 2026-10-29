@@ -204,7 +204,7 @@ def popisky_obrazku(text: str) -> str:
 
 
 POPISEK = re.compile(
-    r"^(?P<druh>Obrázek|Obr\.|Tabulka|Tabulky|Tab\.)[ \t]*(?P<cislo>\d+)\.?"
+    r"^(?P<druh>Obrázek|Obr\.|Tabulka|Tabulky|Tab\.|Výpis)[ \t]*(?P<cislo>\d+)\.?"
     r"(?P<oddel>[ \t]*[-–—:][ \t]*|[ \t]+)(?P<popis>\S.*)$"
 )
 
@@ -217,7 +217,7 @@ def popisky_samostatne(text: str) -> str:
     obsahuje …“ v běžném textu tak zůstane beze změny.
     """
     def radek(r: str) -> str:
-        if r.startswith(("**Obr.", "**Tab.")) and re.match(r"^\*\*(Obr|Tab)\. \d+\*\* ", r):
+        if r.startswith(("**Obr.", "**Tab.", "**Výpis")) and re.match(r"^\*\*(Obr\.|Tab\.|Výpis) \d+\*\* ", r):
             return r                                   # už sjednocený
         cely_tucny = r.startswith("**") and r.rstrip().endswith("**")
         holy = r.replace("**", "").strip()
@@ -230,7 +230,7 @@ def popisky_samostatne(text: str) -> str:
             return r
         if len(holy) > 300:
             return r
-        zkratka = "Tab." if m.group("druh").startswith("Tab") else "Obr."
+        zkratka = "Tab." if m.group("druh").startswith("Tab") else ("Výpis" if m.group("druh") == "Výpis" else "Obr.")
         return f"**{zkratka} {m.group('cislo')}** {m.group('popis').strip()}"
     text = "\n".join(radek(r) for r in text.split("\n"))
     # alternativní text z Wordu typu „Popis: Clipboard02.jpg“ nebo „FPI Message.emf“ nic neříká
@@ -480,6 +480,71 @@ def kod_z_odstavcu(text: str) -> str:
     return "\n".join(out)
 
 
+# --------------------------------------------------------------------------
+# bloky kódu (styl „Source Code“ z md2docx)
+# --------------------------------------------------------------------------
+
+ZNACKA_KODU = "KODBLOK{}KONEC"
+
+
+def vyjmi_kod(docx: Path, tmp: Path) -> "tuple[Path, list[str]]":
+    """Odstavce ve stylu Source Code (bloky kódu z md2docx) nahradí v kopii dokumentu značkou.
+
+    Pandoc je z Wordu čte jako běžný text a ztrácí odsazení i prázdné řádky; text
+    se proto vezme přímo z XML (w:t, w:tab, w:br) a po převodu vloží zpět jako blok.
+    """
+    from lxml import etree
+    W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+    q = lambda t: "{%s}%s" % (W, t)
+    with zipfile.ZipFile(docx) as z:
+        doc = etree.fromstring(z.read("word/document.xml"))
+        bloky = []
+        for p in list(doc.iter(q("p"))):
+            st = p.find(q("pPr") + "/" + q("pStyle"))
+            if st is None or st.get(q("val")) not in ("SourceCode", "Source Code"):
+                continue
+            casti = []
+            for el in p.iter(q("t"), q("tab"), q("br")):
+                if el.tag == q("t"):
+                    casti.append(el.text or "")
+                else:
+                    casti.append("\t" if el.tag == q("tab") else "\n")
+            bloky.append("".join(casti).rstrip("\n"))
+            novy = etree.SubElement(p.getparent(), q("p"))
+            r = etree.SubElement(novy, q("r")); t = etree.SubElement(r, q("t"))
+            t.text = ZNACKA_KODU.format(len(bloky) - 1)
+            p.addprevious(novy); p.getparent().remove(p)
+        if not bloky:
+            return docx, []
+        cil = tmp / ("kod_" + docx.name)
+        with zipfile.ZipFile(cil, "w", zipfile.ZIP_DEFLATED) as out:
+            for i in z.infolist():
+                data = z.read(i.filename)
+                if i.filename == "word/document.xml":
+                    data = etree.tostring(doc, xml_declaration=True, encoding="UTF-8", standalone=True)
+                out.writestr(i, data)
+    return cil, bloky
+
+
+def jazyk_kodu(kod: str) -> str:
+    """Jazyk bloku podle obsahu (když ho nelze převzít ze zdrojového Markdownu)."""
+    if re.search(r"<!(ENTITY|ELEMENT|ATTLIST)\b", kod):
+        return "dtd"
+    if re.search(r"^\s*<(\?xml|xs:|[A-Za-z_][\w.-]*[ >/])", kod, re.M) and "::=" not in kod and ">:=" not in kod:
+        return "xml"
+    if "::=" in kod and re.search(r"\b(SEQUENCE|CHOICE|INTEGER|BEGIN|DEFINITIONS|BIT STRING|OCTET STRING|ENUMERATED)\b|\{\s*iso\s*\(", kod):
+        return "asn1"
+    return ""
+
+
+def vloz_kod(text: str, bloky: "list[str]", jazyky: "list[str] | None" = None) -> str:
+    for i, kod in enumerate(bloky):
+        jazyk = jazyky[i] if jazyky and i < len(jazyky) else jazyk_kodu(kod)
+        text = re.sub(r"^[ \t]*" + ZNACKA_KODU.format(i) + r"[ \t]*$",
+                      lambda m: "```" + jazyk + "\n" + kod + "\n```", text, count=1, flags=re.M)
+    return text
+
+
 PREVEST_NA_PNG = {".emf", ".wmf", ".bmp", ".tif", ".tiff"}
 
 
@@ -596,7 +661,7 @@ def uklid_text(text: str) -> str:
     return text.strip() + "\n"
 
 
-def prevod(docx: Path, img_dir: Path, zaklad: str) -> str:
+def prevod(docx: Path, img_dir: Path, zaklad: str, jazyky: "list[str] | None" = None) -> str:
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         zdroj = docx
@@ -606,10 +671,12 @@ def prevod(docx: Path, img_dir: Path, zaklad: str) -> str:
                 raise RuntimeError("starý formát .doc a není k dispozici LibreOffice")
             zdroj = prevedeny
         zdroj = vykresli_skupiny(zdroj, tmp_path)
+        zdroj, bloky_kodu = vyjmi_kod(zdroj, tmp_path)
         media_dir = tmp_path / "media"
         titulek = titulek_z_docx(docx)
         text = pandoc(zdroj, media_dir)
         text = text.replace("\u00a0", " ")  # Word sype nezlomitelné mezery
+        text = vloz_kod(text, bloky_kodu, jazyky)
         text = hlavicka(text)
         text = zanor_nadpisy(text)
         text = bez_zdvojeneho_titulku(text, titulek)

@@ -3,6 +3,8 @@ local function je_popisek(el)
   -- odstavec začínající tučným „Obr. N“ / „Tab. N“
   if el.t ~= 'Para' or #el.content < 1 or el.content[1].t ~= 'Strong' then return nil end
   local s = pandoc.utils.stringify(el.content[1])
+  local v = s:match('^Výpis%s+(%d+)$')
+  if v then return 'Výpis', v end
   local druh, cislo = s:match('^(%a+)%.%s*([%w%.]+)$')
   if druh == 'Obr' then return 'Obrázek', cislo end
   if druh == 'Tab' then return 'Tabulka', cislo end

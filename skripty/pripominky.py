@@ -42,12 +42,21 @@ def komentare(docx: Path):
                                  'text': ' '.join(T(p).strip() for p in c.iter(q('p'))).strip()})
     return vysl
 
+def jazyky_kodu(md: str):
+    """Jazyky bloků kódu ve zdrojovém .md v pořadí výskytu (Word je nenese)."""
+    jaz, kod = [], False
+    for l in md.split('\n'):
+        if l.strip().startswith('```'):
+            if not kod: jaz.append(l.strip()[3:].strip())
+            kod = not kod
+    return jaz
+
 def prevezmi_text(docx: Path, zdroj: Path):
     """Přijme sledované změny ve Wordu a jeho text zapíše do těla zdrojového .md (metadata ponechá)."""
     with tempfile.TemporaryDirectory() as tmp:
         kopie = Path(tmp) / 'prijato.docx'; shutil.copy2(docx, kopie)
         prijmi_revize.main([str(kopie)])
-        novy = docx2md.prevod(kopie, Path(tmp) / 'img', zdroj.stem)
+        novy = docx2md.prevod(kopie, Path(tmp) / 'img', zdroj.stem, jazyky_kodu(zdroj.read_text(encoding='utf-8')))
     _, novy_telo = rozdel(novy)
     novy_telo = normalizuj(nadpisy(novy_telo))
     puvodni = zdroj.read_text(encoding='utf-8')
@@ -57,7 +66,8 @@ def prevezmi_text(docx: Path, zdroj: Path):
     nove_obr = re.findall(r'\]\((\./img/[^)]+)\)', '\n'.join(novy_telo))
     text = '\n'.join(novy_telo).strip() + '\n'
     if len(puv_obr) == len(nove_obr):
-        for a, b in zip(nove_obr, puv_obr): text = text.replace('](' + a + ')', '](' + b + ')', 1)
+        for i, a in enumerate(nove_obr): text = text.replace('](' + a + ')', f'](\x00{i}\x00)', 1)   # bez řetězení náhrad
+        for i, b in enumerate(puv_obr): text = text.replace(f'](\x00{i}\x00)', '](' + b + ')', 1)
     else:
         print(f'POZOR: počet obrázků se liší ({len(puv_obr)} → {len(nove_obr)}), odkazy zkontrolujte ručně.')
     zdroj.write_text('---' + fm + '---\n\n' + text, encoding='utf-8')

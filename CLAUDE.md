@@ -15,8 +15,12 @@ Extrakty z technických norem ITS pro TNK 136 (Petr Bureš). Repozitář: GitHub
   číslování kapitol.“), Užití, 1 Předmět, 2 Souvisící normy, 3 Termíny a definice (konec: „Další termíny a zkratky z oboru ITS
   jsou obsaženy ve slovníku ITS terminology.“), 4 Symboly a zkratky (konec: táž věta s „(www.ITSterminology.org)“),
   další kapitoly, přílohy. Čísla a názvy kapitol podle normy.
-- **Vložené prvky:** obrázky a tabulky číslované zvlášť od 1 v pořadí v extraktu; popisek v md `**Obr. N** text (obr. X popisovaného dokumentu)`
-  pod obrázkem, `**Tab. N** …` nad tabulkou; výpis kódu = obrázek; na každý prvek odkaz v textu.
+- **Vložené prvky:** obrázky, tabulky a výpisy kódu číslované každé zvlášť od 1 v pořadí v extraktu; popisek v md
+  `**Obr. N** text (obr. X popisovaného dokumentu)` pod obrázkem, `**Tab. N** …` nad tabulkou, `**Výpis N** …` pod blokem kódu;
+  na každý prvek odkaz v textu („na obrázku 1“, „v tabulce 1“, „ve výpisu 1“).
+  **Výpis kódu je text**, ne obrázek: blok ```` ```xml ````, ```` ```dtd ````, ```` ```asn1 ```` (zvýraznění syntaxe), pseudokód TPEG bez jazyka.
+  **Tabulka je tabulka** (pipe, se sloučenými buňkami HTML); obrázek tabulky jen u složitých (piktogramy, diagram v buňce).
+  Přečíslování a odkazy: `python skripty/precisluj.py SOUBOR.md [--nahled]`.
 - **Metodika** v `metodika/` (přílohy A–F v0.2, `Extrakt_šablona.docx`) odpovídá této struktuře.
 - **Texty norem nepatří do repozitáře** (autorská práva) – jsou v `C:\work-AI\tnk\archiv\zdroje-norem`.
 - **Práce s připomínkami nepatří do gitu** (vrácené Wordy, výpisy komentářů) – ukládat mimo repo,

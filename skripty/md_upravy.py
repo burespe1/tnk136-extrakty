@@ -31,8 +31,12 @@ def nadpisy(telo, volne=None):
     if volne is None:
         prvni = nadpisy(telo, volne=False)
         return prvni if any(l.strip() == '## Úvod' for l in prvni) else nadpisy(telo, volne=True)
-    novy = []
+    novy, kod = [], False
     for i, l in enumerate(telo):
+        if l.strip().startswith('```'):
+            kod = not kod; novy.append(l); continue
+        if kod:
+            novy.append(l); continue
         if volne:
             s = l.strip()
             m = re.fullmatch(r'\d+\.\s+(.+)', s)
@@ -61,9 +65,13 @@ def normalizuj(radky):
     obrázek a jeho popisek vždy jako samostatné odstavce; nadpisy bez zpětných lomítek
     („## 6\\. Požadavky“ → „## 6. Požadavky“); prázdné nadpisy „##“ pryč;
     pipe tabulky s prázdným záhlavím → první řádek jako záhlaví."""
-    out = []
+    out, kod = [], False
     for l in radky:
         s = l.strip()
+        if s.startswith('```'):
+            kod = not kod; out.append(l); continue
+        if kod:
+            out.append(l); continue
         if re.fullmatch(r'#{1,6}', s):
             continue
         if s.startswith('#'):
@@ -72,6 +80,9 @@ def normalizuj(radky):
              or re.fullmatch(r'\*\*(Obrázek|Tabulka)\s+([A-Z]?\.?\d+(?:\.\d+)?)\.?\s*[–-]?\s*(.+?)\*\*', s))
         if m:
             l = f"**{'Obr.' if m.group(1) == 'Obrázek' else 'Tab.'} {m.group(2)}** {m.group(3)}"
+        v = re.match(r'^(?:\*\*)?Výpis\s+(\d+)\.?\s*[–-]\s*(.+?)(?:\*\*)?$', s)
+        if v and not s.startswith('**Výpis '):
+            l = f"**Výpis {v.group(1)}** {v.group(2)}"
         im = re.fullmatch(r'(!\[[^\]]*\]\([^)]*\)(?:\{[^}]*\})?)\s+(\S.*)', l.strip())
         if im:                                   # obrázek a popisek na jednom řádku
             out += [im.group(1), '', im.group(2)]; continue
@@ -99,7 +110,7 @@ def _odstavce(radky):
     for l in radky:
         if l.strip().startswith('```'):
             kod = not kod
-        if not kod and re.match(r'\*\*(Obr|Tab)\. ', l.strip()) and out and out[-1].strip():
+        if not kod and re.match(r'\*\*(Obr\.|Tab\.|Výpis) ', l.strip()) and out and out[-1].strip():
             out.append('')
         out.append(l)
     vysl, blok, kod = [], [], False

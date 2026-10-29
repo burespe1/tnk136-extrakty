@@ -158,7 +158,7 @@ def preved(md: Path, pdf: bool = True):
         f.write(telo); tmp = f.name
     subprocess.run([PANDOC, tmp, '-f', 'markdown+raw_html+raw_attribute-implicit_figures-smart', '-t', 'docx',
                     '--reference-doc', str(SABLONA), '--lua-filter', str(FILTR),
-                    '--shift-heading-level-by=-1', '--syntax-highlighting=none', '--resource-path', str(md.parent), '-o', str(docx)], check=True)
+                    '--shift-heading-level-by=-1', '--syntax-highlighting=tango', '--resource-path', str(md.parent), '-o', str(docx)], check=True)
     d = Document(str(docx)); body = d.element.body
     upravy_tabulek(body)
     prvni = next(body.iterchildren())
