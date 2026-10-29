@@ -20,12 +20,12 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | CEN ISO/TS 14823:2008 |  | Dopravní a cestovní informace – Šíření zpráv prostřednictvím stacionárních systémů nezávislých na médiích – Slovník grafických dat pro šíření informací před jízdou a za jízdy | 2008 | [14823_2008.md](extrakty/TC278WG4/14823_2008.md) |
 | EN ISO 14823-1:2024 |  | Inteligentní dopravní systémy – Slovník grafických dat – Část 1: Specifikace | 2025 | [14823-1_2024.md](extrakty/TC278WG4/14823-1_2024.md) |
 | ISO/TR 14823-2:2019 |  | Inteligentní dopravní systémy – Slovník grafických dat – Část 2: Příklady | 2024 | [14823-2_2019.md](extrakty/TC278WG4/14823-2_2019.md) |
-| CEN ISO/TS 18234-1:2006 |  | 03.220.01, 35.240.60 | 2008 | [18234-1_2006.md](extrakty/TC278WG4/18234-1_2006.md) |
-| CEN ISO/TS 18234-2:2006 |  | 03.220.01, 35.240.60 | 2008 | [18234-2_2006.md](extrakty/TC278WG4/18234-2_2006.md) |
-| CEN ISO/TS 18234-3:2006 |  | 03.220.01, 35.240.60 | 2008 | [18234-3_2006.md](extrakty/TC278WG4/18234-3_2006.md) |
-| CEN ISO/TS 18234-4:2006 |  | 03.220.01, 35.240.60 | 2008 | [18234-4_2006.md](extrakty/TC278WG4/18234-4_2006.md) |
-| CEN ISO/TS 18234-5:2006 |  | 03.220.01, 35.240.60 | 2008 | [18234-5_2006.md](extrakty/TC278WG4/18234-5_2006.md) |
-| CEN ISO/TS 18234-6:2006 |  | 03.220.01, 35.240.60 | 2008 | [18234-6_2006.md](extrakty/TC278WG4/18234-6_2006.md) |
+| CEN ISO/TS 18234-1:2006 |  | Inteligentní dopravní systémy – Dopravní a cestovní informace v binárním formátu dopravního protokolu expertní skupiny, 1. generace (TPEG1) – Část 1: Úvod, číslování a verze | 2008 | [18234-1_2006.md](extrakty/TC278WG4/18234-1_2006.md) |
+| CEN ISO/TS 18234-2:2006 |  | Inteligentní dopravní systémy – Dopravní a cestovní informace v binárním formátu dopravního protokolu expertní skupiny, 1. generace (TPEG1) – Část 2: Syntaxe, sémantika a rámcová struktura | 2008 | [18234-2_2006.md](extrakty/TC278WG4/18234-2_2006.md) |
+| CEN ISO/TS 18234-3:2006 |  | Inteligentní dopravní systémy – Dopravní a cestovní informace v binárním formátu dopravního protokolu expertní skupiny, 1. generace (TPEG1) – Část 3: Informace o službách a síti | 2008 | [18234-3_2006.md](extrakty/TC278WG4/18234-3_2006.md) |
+| CEN ISO/TS 18234-4:2006 |  | Inteligentní dopravní systémy – Dopravní a cestovní informace v binárním formátu dopravního protokolu expertní skupiny, 1. generace (TPEG1) – Část 4: Aplikace pro zprávy o silniční dopravě | 2008 | [18234-4_2006.md](extrakty/TC278WG4/18234-4_2006.md) |
+| CEN ISO/TS 18234-5:2006 |  | Inteligentní dopravní systémy – Dopravní a cestovní informace v binárním formátu dopravního protokolu expertní skupiny, 1. generace (TPEG1) – Část 5: Aplikace pro informace o veřejné dopravě | 2008 | [18234-5_2006.md](extrakty/TC278WG4/18234-5_2006.md) |
+| CEN ISO/TS 18234-6:2006 |  | Inteligentní dopravní systémy – Dopravní a cestovní informace v binárním formátu dopravního protokolu expertní skupiny, 1. generace (TPEG1) – Část 6: Odkazování na polohu v aplikacích | 2008 | [18234-6_2006.md](extrakty/TC278WG4/18234-6_2006.md) |
 | CEN ISO/TS 18234-7:2013 |  | Dopravní a cestovní informace (TTI) – Zprávy TTI předávané označovacím jazykem s možností rozšíření Expertní skupiny protokolů pro dopravu (TPEG) Část 7: Aplikace pro informace o parkování (TPEG-PKI) | 2012 | [18234-7_2013.md](extrakty/TC278WG4/18234-7_2013.md) |
 | ISO/TS 18234-8:2012 |  | Dopravní a cestovní informace (TTI) – Zprávy TTI předávané označovacím jazykem s možností rozšíření Expertní skupiny protokolů pro dopravu (TPEG) Část 8: Aplikace pro informace o kongescích a době jízdy (TPEG-CTT) | 2012 | [18234-8_2012.md](extrakty/TC278WG4/18234-8_2012.md) |
 | CEN ISO/TS 18234-9:2013 |  | Dopravní a cestovní informace (TTI) – Zprávy TTI předávané označovacím jazykem s možností rozšíření Expertní skupiny protokolů pro dopravu (TPEG) Část 9: Aplikace pokrývající dopravní události (TPEG-TEC) | 2012 | [18234-9_2013.md](extrakty/TC278WG4/18234-9_2013.md) |
@@ -56,8 +56,8 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | ISO/TS 21219-26:2018 | TPEG2-VLI | Inteligentní dopravní systémy – Dopravní a cestovní informace (TTI) v dopravním protokolu expertní skupiny, druhá generace (TPEG2) - Část 26: Informace o místech vyžadujících zvýšenou pozornost (TPEG2-VLI) | 2022 | [21219-26_2018.md](extrakty/TC278WG4/21219-26_2018.md) |
 | CEN ISO/TS 24530-1:2006 |  | Dopravní a cestovní informace (TTI) – TTI předávané rozšiřitelným označovacím jazykem (XML) – Expertní skupiny protokolů pro dopravu (TPEG) – Část 1: Představení, obecný datový typ a tpegML | 2009 | [24530-1_2006.md](extrakty/TC278WG4/24530-1_2006.md) |
 | CEN ISO/TS 24530-2:2006 |  | Dopravní a cestovní informace (TTI) – TTI předávané rozšířitelným označovacím jazykem (XML) – Expertní skupiny protokolů pro dopravu (TPEG) – Část 2: tpeg-locML | 2009 | [24530-2_2006.md](extrakty/TC278WG4/24530-2_2006.md) |
-| CEN ISO/TS 24530-3:2006 |  | 03.220.01, 35.240.60 | 2008 | [24530-3_2006.md](extrakty/TC278WG4/24530-3_2006.md) |
-| CEN ISO/TS 24530-4:2006 |  | 03.220.01, 35.240.60 | 2008 | [24530-4_2006.md](extrakty/TC278WG4/24530-4_2006.md) |
+| CEN ISO/TS 24530-3:2006 |  | Dopravní a cestovní informace (TTI) – TTI v rozšiřitelném označovacím jazyce (XML) dopravního protokolu expertní skupiny, 1. generace (TPEG1) – Část 3: Aplikace pro zprávy o silniční dopravě | 2008 | [24530-3_2006.md](extrakty/TC278WG4/24530-3_2006.md) |
+| CEN ISO/TS 24530-4:2006 |  | Dopravní a cestovní informace (TTI) – TTI v rozšiřitelném označovacím jazyce (XML) dopravního protokolu expertní skupiny, 1. generace (TPEG1) – Část 4: Aplikace pro informace o veřejné dopravě | 2008 | [24530-4_2006.md](extrakty/TC278WG4/24530-4_2006.md) |
 
 ## WG5 – Elektronický výběr poplatků (EFC)
 
@@ -81,7 +81,7 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | Norma | Zkratka | Název | Extrakt | Markdown |
 |---|---|---|---|---|
 | ISO 14296:2016 |  | Inteligentní dopravní systémy (ITS) — Rozšíření specifikací mapové databáze pro aplikace kooperativních ITS systémů | 2016 | [14296_2016.md](extrakty/TC278WG7/14296_2016.md) |
-| EN ISO 14825:2004 |  | 03.220.01, 35.240.70 | 2008 | [14825_2004.md](extrakty/TC278WG7/14825_2004.md) |
+| EN ISO 14825:2004 |  | Inteligentní dopravní systémy – Geografické datové soubory (GDF) – Celková datová specifikace | 2008 | [14825_2004.md](extrakty/TC278WG7/14825_2004.md) |
 | ISO 17267:2009 |  | Inteligentní dopravní systémy – Standardní API navigačního systému | 2009 | [17267_2009.md](extrakty/TC278WG7/17267_2009.md) |
 | ISO 17572-1:2008 |  | Inteligentní dopravní systémy – Označení pozic pro geografické databáze – Část 1: Obecné požadavky a konceptuální model | 2008 | [17572-1_2008.md](extrakty/TC278WG7/17572-1_2008.md) |
 | ISO 17572-2:2008 |  | Inteligentní dopravní systémy – Označení pozic pro geografické databáze – Část 2: Předem kódované označení pozic | 2008 | [17572-2_2008.md](extrakty/TC278WG7/17572-2_2008.md) |
@@ -89,7 +89,7 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | ISO 17572-3:2015 |  | Inteligentní dopravní systémy (ITS) — Označení poloh pro geografické databáze – Část 3: Dynamické označování poloh (dynamický profil) | 2015 | [17572-3_2015.md](extrakty/TC278WG7/17572-3_2015.md) |
 | ISO/TS 20452:2007 |  | Požadavky a logický datový model pro formát fyzického skladování dat (PSF) a rozhraní aplikačního programu (API) a logická organizace dat pro PSF používaná v inteligentních dopravních systémech | 2009 | [20452_2007.md](extrakty/TC278WG7/20452_2007.md) |
 | ISO/TS 22726-1:2025 |  | Inteligentní dopravní systémy – Specifikace dynamických dat a mapové databáze pro aplikace propojených a automatizovaných systémů řízení – Část 1: Architektura a logický datový model pro harmonizaci statických mapových dat | 2025 | [22726-1_2025.md](extrakty/TC278WG7/22726-1_2025.md) |
-| ISO 24099:2011 |  | ISO 24099 | 2010 | [24099_2011.md](extrakty/TC278WG7/24099_2011.md) |
+| ISO 24099:2011 |  | Struktura a protokol pro poskytování dat navigace | 2010 | [24099_2011.md](extrakty/TC278WG7/24099_2011.md) |
 
 ## WG12 – Automatická identifikace vozidel a zařízení (AVI/AEI)
 
