@@ -22,7 +22,7 @@ Extrakty z technických norem ITS pro TNK 136 (Petr Bureš). Repozitář: GitHub
   **Tabulka je tabulka** (pipe, se sloučenými buňkami HTML); obrázek tabulky jen u složitých (piktogramy, diagram v buňce).
   Přečíslování a odkazy: `python skripty/precisluj.py SOUBOR.md [--nahled]`.
 - **Metodika** v `metodika/` (přílohy A–F v0.2, `Extrakt_šablona.docx`) odpovídá této struktuře.
-- **Texty norem nepatří do repozitáře** (autorská práva) – jsou v `C:\work-AI\tnk\archiv\zdroje-norem`.
+- **Texty norem nepatří do repozitáře** (autorská práva) – jsou v `C:\work-AI\tnk\normy\docs`.
 - **Práce s připomínkami nepatří do gitu** (vrácené Wordy, výpisy komentářů) – ukládat mimo repo,
   např. `C:\work-AI\tnk\pripominky\<kód>\`. Do repa jen výsledný text.
 - **Extrakty WG5 (EFC)** už nejsou v Petrově odpovědnosti – neupravovat bez výslovného pokynu.
