@@ -43,8 +43,15 @@ def hlavicka(meta):
     sp = OxmlElement('w:spacing'); sp.set(qn('w:before'), '0'); sp.set(qn('w:after'), '120')
     st = ppr.find(qn('w:pStyle')); (st.addnext(sp) if st is not None else ppr.insert(0, sp))
     prepis(extr, f"Extrakt zpracován {meta['zpracovano']}" + (f", aktualizován {meta['upraveno']}" if meta.get('upraveno') else ''))
+    W14 = '{http://schemas.microsoft.com/office/word/2010/wordml}'
     for e in (titul, upoz, tab, vyd, extr):    # šablona má zástupné údaje zvýrazněné
         for h in list(e.iter(qn('w:highlight'))): h.getparent().remove(h)
+        # komentáře šablony: dokument je nemá (comments.xml je prázdný) – odkazy na ně Word hlásí jako poškozený soubor
+        for k in list(e.iter(qn('w:commentRangeStart'), qn('w:commentRangeEnd'))): k.getparent().remove(k)
+        for k in list(e.iter(qn('w:commentReference'))):
+            r = k.getparent(); (r.getparent().remove(r) if r.tag == qn('w:r') else r.remove(k))
+        for x in e.iter():                     # zkopírované odstavce by měly duplicitní w14:paraId
+            for a in (W14 + 'paraId', W14 + 'textId'): x.attrib.pop(a, None)
     return [titul, upoz, tab, vyd, extr]      # ICS se podle metodiky (příloha B) v záhlaví neuvádí
 
 def upravy_tabulek(body):
