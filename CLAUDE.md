@@ -20,6 +20,9 @@ Extrakty z technických norem ITS pro TNK 136 (Petr Bureš). Repozitář: GitHub
 - **Obrázky** z norem se ponechávají v původním jazyce (nepřekládají se). Velikost: bez `{width=…}` je md2docx
   zmenší na nejvýš 12 × 8 cm; větší či menší rozměr zadat v md (`![popis](img/x.png){width=10cm}`).
 - **Pole `zkratka`** v hlavičce (např. TPEG2-UMR, TPEG1-SSF) se uvádí, má-li ji norma v názvu.
+- **Rozsah kapitol:** u kapitol (od kap. 5), příloh a klíčových článků uvádět rozsah ve stranách
+  („Kapitola (rozsah 3 strany) stanovuje …“, „Příloha o rozsahu 7 stran …“).
+- **Souvislý text:** souvětí se spojkami a návazností, ne holé věty; středníky v běžném textu nepoužívat (jen ve výčtech).
 - **Extrakt z FDIS** (vydaný text není k dispozici) lze převzít do repa; počet stran a ICS podle katalogu ISO/iteh.
 - **Vložené prvky:** obrázky, tabulky a výpisy kódu číslované každé zvlášť od 1 v pořadí v extraktu; popisek v md
   `**Obr. N** text (obr. X popisovaného dokumentu)` pod obrázkem, `**Tab. N** …` nad tabulkou, `**Výpis N** …` pod blokem kódu;
