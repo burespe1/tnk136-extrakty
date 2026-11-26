@@ -92,6 +92,9 @@ def sirky_sloupcu(tbl, body):
             if k == 1 and j < n:
                 nejdelsi[j] = max(nejdelsi[j], len(t))
                 slovo[j] = max([slovo[j]] + [len(x) for x in t.split()])
+                for ext in tc.iter(qn('wp:extent')):     # obrázek v buňce: sloupec aspoň na jeho šířku
+                    znaku = -(-int(ext.get('cx')) // 635 // 125)
+                    slovo[j] = max(slovo[j], znaku); nejdelsi[j] = max(nejdelsi[j], znaku)
             j += k
     ZNAK = 125                                    # přibližná šířka znaku v twipech (Arial 10 pt)
     minimum = [min(s, 25) * ZNAK + 330 for s in slovo]
@@ -118,6 +121,24 @@ def sirky_sloupcu(tbl, body):
             if tw is None: tw = OxmlElement('w:tcW'); pr.insert(0, tw)
             tw.set(qn('w:type'), 'dxa'); tw.set(qn('w:w'), str(sum(sirky[j:j + k])))
             j += k
+
+OBR_MAX_SIRKA, OBR_MAX_VYSKA = 12.0, 8.0          # cm; výchozí strop pro obrázky bez {width=…}/{height=…}
+def velikosti_obrazku(body, explicitni):
+    """Obrázky bez rozměru v md zmenšit poměrně na OBR_MAX_SIRKA × OBR_MAX_VYSKA
+    (pandoc je jinak dává přes celou sazbu); rozměr zadaný v md ({width=…}) se nemění."""
+    EMU = 360000
+    kresby = [d for d in body.iter(qn('w:drawing'))]
+    for kresba, expl in zip(kresby, explicitni):
+        if expl: continue
+        ext = next(kresba.iter(qn('wp:extent')), None)
+        if ext is None: continue
+        cx, cy = int(ext.get('cx')), int(ext.get('cy'))
+        k = min(1.0, OBR_MAX_SIRKA * EMU / cx, OBR_MAX_VYSKA * EMU / cy)
+        if k >= 1.0: continue
+        nx, ny = str(int(cx * k)), str(int(cy * k))
+        ext.set('cx', nx); ext.set('cy', ny)
+        for a in kresba.iter('{http://schemas.openxmlformats.org/drawingml/2006/main}ext'):
+            if a.get('cx') == str(cx): a.set('cx', nx); a.set('cy', ny)
 
 def mezery(d):
     """Mezery kolem tabulek a obrázků:
@@ -159,6 +180,8 @@ def preved(md: Path, pdf: bool = True):
     # HTML tabulky (sloučené buňky) jako jeden surový blok, filtr je převede na tabulku Wordu
     telo = re.sub(r'(?ms)^<table.*?</table>\s*$', lambda m: '\n```{=html}\n' + m.group(0).strip() + '\n```\n', telo)
     telo = horni_dolni_indexy(telo)
+    explicitni = [bool(m.group(1)) and ('width' in m.group(1) or 'height' in m.group(1))
+                  for m in re.finditer(r'!\[[^\]]*\]\([^)]*\)(\{[^}]*\})?', telo)]
     cil = BUILD / md.parent.name if md.parent.name.startswith('TC') else BUILD
     cil.mkdir(parents=True, exist_ok=True)
     docx = cil / (md.stem + '.docx')
@@ -168,6 +191,7 @@ def preved(md: Path, pdf: bool = True):
                     '--reference-doc', str(SABLONA), '--lua-filter', str(FILTR),
                     '--shift-heading-level-by=-1', '--syntax-highlighting=tango', '--resource-path', str(md.parent), '-o', str(docx)], check=True)
     d = Document(str(docx)); body = d.element.body
+    velikosti_obrazku(body, explicitni)
     upravy_tabulek(body)
     prvni = next(body.iterchildren())
     for e in hlavicka(meta): prvni.addprevious(e)

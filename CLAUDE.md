@@ -15,6 +15,12 @@ Extrakty z technických norem ITS pro TNK 136 (Petr Bureš). Repozitář: GitHub
   číslování kapitol.“), Užití, 1 Předmět, 2 Souvisící normy, 3 Termíny a definice (konec: „Další termíny a zkratky z oboru ITS
   jsou obsaženy ve slovníku ITS terminology.“), 4 Symboly a zkratky (konec: táž věta s „(www.ITSterminology.org)“),
   další kapitoly, přílohy. Čísla a názvy kapitol podle normy.
+  Kapitola zkratek má vždy název „Symboly a zkratky“, i když ji norma nazývá „Abbreviated terms“ (číslo podle normy).
+  Norma bez kapitoly „Normative references“: oddíl „Souvisící normy“ **bez čísla**, ostatní kapitoly číslované podle normy.
+- **Obrázky** z norem se ponechávají v původním jazyce (nepřekládají se). Velikost: bez `{width=…}` je md2docx
+  zmenší na nejvýš 12 × 8 cm; větší či menší rozměr zadat v md (`![popis](img/x.png){width=10cm}`).
+- **Pole `zkratka`** v hlavičce (např. TPEG2-UMR, TPEG1-SSF) se uvádí, má-li ji norma v názvu.
+- **Extrakt z FDIS** (vydaný text není k dispozici) lze převzít do repa; počet stran a ICS podle katalogu ISO/iteh.
 - **Vložené prvky:** obrázky, tabulky a výpisy kódu číslované každé zvlášť od 1 v pořadí v extraktu; popisek v md
   `**Obr. N** text (obr. X popisovaného dokumentu)` pod obrázkem, `**Tab. N** …` nad tabulkou, `**Výpis N** …` pod blokem kódu;
   na každý prvek odkaz v textu („na obrázku 1“, „v tabulce 1“, „ve výpisu 1“).
