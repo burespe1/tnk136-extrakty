@@ -31,6 +31,8 @@ Extrakty z technických norem ITS pro TNK 136 (Petr Bureš). Repozitář: GitHub
   oborem hodnot a jednotkou“), aby čtenář věděl, co v normě najde.
 - **Normy zmíněné v textu** extraktu (předchozí vydání, navazující části souboru, přejaté koncepty) uvádět i v oddílu
   „Souvisící normy“ (normativní odkazy, nebo větou o bibliografii „… mj. …“).
+- **Souvisící normy kompaktně:** pokud možno souvislým textem v jedné až dvou větách (označení normy a v závorce téma,
+  např. „ISO 639-2 (kódy jazyků)“), ne samostatné řádky s plnými názvy (vzor `17572-1_2022`).
 - **Příklad:** krátký příklad (jedna věta, malý výpis nebo tabulka z normy) uvést tam, kde zásadně zlepší pochopení
   principu (zápis časové domény, struktura záznamu); jinak příklady nepřidávat.
 - **Extrakt z FDIS** (vydaný text není k dispozici) lze převzít do repa; počet stran a ICS podle katalogu ISO/iteh.
