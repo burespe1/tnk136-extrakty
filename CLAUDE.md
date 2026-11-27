@@ -23,6 +23,13 @@ Extrakty z technických norem ITS pro TNK 136 (Petr Bureš). Repozitář: GitHub
 - **Rozsah kapitol:** u kapitol (od kap. 5), příloh a klíčových článků uvádět rozsah ve stranách
   („Kapitola (rozsah 3 strany) stanovuje …“, „Příloha o rozsahu 7 stran …“).
 - **Souvislý text:** souvětí se spojkami a návazností, ne holé věty; středníky v běžném textu nepoužívat (jen ve výčtech).
+- **Popis kapitol – co, jak a do jakého detailu:** u delších kapitol, příloh a klíčových článků uvádět nejen, co stanovují,
+  ale i jak (text, diagramy UML, tabulky polí, schémata XML, příklady) a do jaké podrobnosti (např. „každý atribut s definicí,
+  oborem hodnot a jednotkou“), aby čtenář věděl, co v normě najde.
+- **Normy zmíněné v textu** extraktu (předchozí vydání, navazující části souboru, přejaté koncepty) uvádět i v oddílu
+  „Souvisící normy“ (normativní odkazy, nebo větou o bibliografii „… mj. …“).
+- **Příklad:** krátký příklad (jedna věta, malý výpis nebo tabulka z normy) uvést tam, kde zásadně zlepší pochopení
+  principu (zápis časové domény, struktura záznamu); jinak příklady nepřidávat.
 - **Extrakt z FDIS** (vydaný text není k dispozici) lze převzít do repa; počet stran a ICS podle katalogu ISO/iteh.
 - **Vložené prvky:** obrázky, tabulky a výpisy kódu číslované každé zvlášť od 1 v pořadí v extraktu; popisek v md
   `**Obr. N** text (obr. X popisovaného dokumentu)` pod obrázkem, `**Tab. N** …` nad tabulkou, `**Výpis N** …` pod blokem kódu;
