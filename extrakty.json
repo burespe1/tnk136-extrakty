@@ -914,6 +914,18 @@
       "typ": "mezinárodní norma ISO",
       "oznaceni": "ISO 17572-1",
       "nazev": "Inteligentní dopravní systémy (ITS) – Odkazování na polohu pro geografické databáze – Část 1: Obecné požadavky a konceptuální model",
+      "vydani": 2008,
+      "stran": 41,
+      "zpracovano": 2008,
+      "ics": "ICS 35.240.60",
+      "md": "extrakty/TC278WG7/17572-1_2008.md"
+    },
+    {
+      "kod": "17572-1",
+      "wg": "TC278WG7",
+      "typ": "mezinárodní norma ISO",
+      "oznaceni": "ISO 17572-1",
+      "nazev": "Inteligentní dopravní systémy (ITS) – Odkazování na polohu pro geografické databáze – Část 1: Obecné požadavky a konceptuální model",
       "vydani": 2022,
       "stran": 21,
       "zpracovano": 2026,

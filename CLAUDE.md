@@ -35,6 +35,8 @@ Extrakty z technických norem ITS pro TNK 136 (Petr Bureš). Repozitář: GitHub
   např. „ISO 639-2 (kódy jazyků)“), ne samostatné řádky s plnými názvy (vzor `17572-1_2022`).
 - **Příklad:** krátký příklad (jedna věta, malý výpis nebo tabulka z normy) uvést tam, kde zásadně zlepší pochopení
   principu (zápis časové domény, struktura záznamu); jinak příklady nepřidávat.
+- **Staré extrakty se v repu ponechávají:** extrakt k novému vydání se přidá jako nový soubor (`<kód>_<rok>.md`),
+  extrakt ke staršímu vydání se nemaže.
 - **Extrakt z FDIS** (vydaný text není k dispozici) lze převzít do repa; počet stran a ICS podle katalogu ISO/iteh.
 - **Vložené prvky:** obrázky, tabulky a výpisy kódu číslované každé zvlášť od 1 v pořadí v extraktu; popisek v md
   `**Obr. N** text (obr. X popisovaného dokumentu)` pod obrázkem, `**Tab. N** …` nad tabulkou, `**Výpis N** …` pod blokem kódu;

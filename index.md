@@ -83,6 +83,7 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | ISO 14296:2016 |  | Inteligentní dopravní systémy (ITS) — Rozšíření specifikací mapové databáze pro aplikace kooperativních ITS systémů | 2016 | [14296_2016.md](extrakty/TC278WG7/14296_2016.md) |
 | EN ISO 14825:2004 |  | Inteligentní dopravní systémy – Geografické datové soubory (GDF) – Celková datová specifikace | 2008 | [14825_2004.md](extrakty/TC278WG7/14825_2004.md) |
 | ISO 17267:2009 |  | Inteligentní dopravní systémy – Standardní API navigačního systému | 2009 | [17267_2009.md](extrakty/TC278WG7/17267_2009.md) |
+| ISO 17572-1:2008 |  | Inteligentní dopravní systémy (ITS) – Odkazování na polohu pro geografické databáze – Část 1: Obecné požadavky a konceptuální model | 2008 | [17572-1_2008.md](extrakty/TC278WG7/17572-1_2008.md) |
 | ISO 17572-1:2022 |  | Inteligentní dopravní systémy (ITS) – Odkazování na polohu pro geografické databáze – Část 1: Obecné požadavky a konceptuální model | 2026 | [17572-1_2022.md](extrakty/TC278WG7/17572-1_2022.md) |
 | ISO 17572-2:2008 |  | Inteligentní dopravní systémy – Označení pozic pro geografické databáze – Část 2: Předem kódované označení pozic | 2008 | [17572-2_2008.md](extrakty/TC278WG7/17572-2_2008.md) |
 | ISO 17572-3:2008 |  | Inteligentní dopravní systémy (ITS) – Odkazování na polohu pro geografické databáze – Část 3: Dynamické odkazy na polohu (dynamický profil) | 2009 | [17572-3_2008.md](extrakty/TC278WG7/17572-3_2008.md) |
@@ -113,4 +114,4 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 
 ---
 
-Celkem 85 extraktů.
+Celkem 86 extraktů.
