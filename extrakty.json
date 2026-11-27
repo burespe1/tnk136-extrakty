@@ -1,5 +1,5 @@
 {
-  "vygenerovano": "2026-10-29",
+  "vygenerovano": "2026-11-27",
   "extrakty": [
     {
       "kod": "14814",
@@ -211,6 +211,7 @@
       "vydani": 2021,
       "stran": 127,
       "zpracovano": 2023,
+      "upraveno": 2026,
       "md": "extrakty/TC278WG4/14819-2_2021.md"
     },
     {
@@ -912,12 +913,12 @@
       "wg": "TC278WG7",
       "typ": "mezinárodní norma ISO",
       "oznaceni": "ISO 17572-1",
-      "nazev": "Inteligentní dopravní systémy – Označení pozic pro geografické databáze – Část 1: Obecné požadavky a konceptuální model",
-      "vydani": 2008,
-      "stran": 41,
-      "zpracovano": 2008,
-      "ics": "ICS 35.240.60",
-      "md": "extrakty/TC278WG7/17572-1_2008.md"
+      "nazev": "Inteligentní dopravní systémy (ITS) – Odkazování na polohu pro geografické databáze – Část 1: Obecné požadavky a konceptuální model",
+      "vydani": 2022,
+      "stran": 21,
+      "zpracovano": 2026,
+      "ics": "ICS 03.220.01; 35.240.60",
+      "md": "extrakty/TC278WG7/17572-1_2022.md"
     },
     {
       "kod": "17572-2",
@@ -936,7 +937,7 @@
       "wg": "TC278WG7",
       "typ": "mezinárodní norma ISO",
       "oznaceni": "ISO 17572-3",
-      "nazev": "Inteligentní dopravní systémy – Označení pozic pro geografické databáze – Část 3: Dynamické označení pozic",
+      "nazev": "Inteligentní dopravní systémy (ITS) – Odkazování na polohu pro geografické databáze – Část 3: Dynamické odkazy na polohu (dynamický profil)",
       "vydani": 2008,
       "zpracovano": 2009,
       "ics": "ICS 35.240.60",
@@ -947,7 +948,7 @@
       "wg": "TC278WG7",
       "typ": "mezinárodní norma ISO",
       "oznaceni": "ISO 17572-3",
-      "nazev": "Inteligentní dopravní systémy (ITS) — Označení poloh pro geografické databáze – Část 3: Dynamické označování poloh (dynamický profil)",
+      "nazev": "Inteligentní dopravní systémy (ITS) – Odkazování na polohu pro geografické databáze – Část 3: Dynamické odkazy na polohu (dynamický profil)",
       "vydani": 2015,
       "stran": 103,
       "zpracovano": 2015,
@@ -964,6 +965,18 @@
       "zpracovano": 2009,
       "ics": "ICS: [03.220.01](http://www.iso.org/iso/products/standards/catalogue_ics_browse.htm?ICS1=03&ICS2=220&ICS3=01&); [35.240.60](http://www.iso.org/iso/products/standards/catalogue_ics_browse.htm?ICS1=35&ICS2=240&ICS3=60&)",
       "md": "extrakty/TC278WG7/20452_2007.md"
+    },
+    {
+      "kod": "20524-1",
+      "wg": "TC278WG7",
+      "typ": "mezinárodní norma ISO",
+      "oznaceni": "ISO 20524-1",
+      "nazev": "Inteligentní dopravní systémy – Geografické datové soubory (GDF) GDF5.1 – Část 1: Mapová data nezávislá na aplikaci sdílená mezi více zdroji",
+      "vydani": 2020,
+      "stran": 1046,
+      "zpracovano": 2026,
+      "ics": "ICS 03.220.20; 35.240.60",
+      "md": "extrakty/TC278WG7/20524-1_2020.md"
     },
     {
       "kod": "22726-1",

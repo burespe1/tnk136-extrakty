@@ -3,7 +3,7 @@
 Přehled extraktů z technických norem pro ITS. Sloupec **Norma** uvádí popisované
 vydání ISO/CEN, sloupec **Extrakt** rok zpracování (a poslední věcné úpravy) extraktu.
 
-Soubor je generovaný skriptem `skripty/gen-index.py`, naposledy 2026-10-29.
+Soubor je generovaný skriptem `skripty/gen-index.py`, naposledy 2026-11-27.
 Needituj ho ručně – změny se při příštím běhu ztratí.
 
 ## WG4 – Dopravní a cestovní informace (TTI)
@@ -13,7 +13,7 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | EN ISO 14819-1:2003 |  | Zprávy TTI předávané kódováním dopravních zpráv – Část 1: Protokol kódování pro rádiový datový systém – Kanál dopravních zpráv (RDS-TMC) s využitím ALERT - C | 2009 | [14819-1_2003.md](extrakty/TC278WG4/14819-1_2003.md) |
 | EN ISO 14819-1:2021 |  | Inteligentní dopravní systémy – Zprávy TTI předávané kódováním dopravních zpráv – Část 1: Kódovací protokol pro Rádiový datový systém – Kanál dopravních zpráv (RDS-TMC) s využitím ALERT-C | 2023 | [14819-1_2021.md](extrakty/TC278WG4/14819-1_2021.md) |
 | EN ISO 14819-2:2003 |  | Zprávy TTI předávané kódováním dopravních zpráv – Část 2: Kódy událostí pro Rádiový datový systém – Kanál dopravních zpráv (RDS-TMC) | 2009 | [14819-2_2003.md](extrakty/TC278WG4/14819-2_2003.md) |
-| EN ISO 14819-2:2021 |  | Inteligentní dopravní systémy - Zprávy TTI předávané kódováním dopravních zpráv - Část 2: Kódy událostí a informací pro Rádiový datový systém - Kanál dopravních zpráv (RDS-TMC) s využitím ALERT-C | 2023 | [14819-2_2021.md](extrakty/TC278WG4/14819-2_2021.md) |
+| EN ISO 14819-2:2021 |  | Inteligentní dopravní systémy - Zprávy TTI předávané kódováním dopravních zpráv - Část 2: Kódy událostí a informací pro Rádiový datový systém - Kanál dopravních zpráv (RDS-TMC) s využitím ALERT-C | 2023 (akt. 2026) | [14819-2_2021.md](extrakty/TC278WG4/14819-2_2021.md) |
 | EN ISO 14819-3:2004 |  | Zprávy TTI předávané kódováním dopravních zpráv – Část 3: Odkazy na polohu ALERT-C | 2009 | [14819-3_2004.md](extrakty/TC278WG4/14819-3_2004.md) |
 | EN ISO 14819-3:2021 |  | Inteligentní dopravní systémy - Zprávy TTI předávané kódováním dopravních zpráv - Část 3: Odkazy na polohu pro Rádiový datový systém- Kanál dopravních zpráv (RDS-TMC) s využitím ALERT-C | 2023 | [14819-3_2021.md](extrakty/TC278WG4/14819-3_2021.md) |
 | EN ISO 14819-6:2006 |  | Zprávy TTI předávané kódováním dopravních zpráv – Část 6: Kódování a vstupní podmínky pro Rádiový datový systém – Kanál dopravních zpráv s využitím ALERT - C | 2009 | [14819-6_2006.md](extrakty/TC278WG4/14819-6_2006.md) |
@@ -83,11 +83,12 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 | ISO 14296:2016 |  | Inteligentní dopravní systémy (ITS) — Rozšíření specifikací mapové databáze pro aplikace kooperativních ITS systémů | 2016 | [14296_2016.md](extrakty/TC278WG7/14296_2016.md) |
 | EN ISO 14825:2004 |  | Inteligentní dopravní systémy – Geografické datové soubory (GDF) – Celková datová specifikace | 2008 | [14825_2004.md](extrakty/TC278WG7/14825_2004.md) |
 | ISO 17267:2009 |  | Inteligentní dopravní systémy – Standardní API navigačního systému | 2009 | [17267_2009.md](extrakty/TC278WG7/17267_2009.md) |
-| ISO 17572-1:2008 |  | Inteligentní dopravní systémy – Označení pozic pro geografické databáze – Část 1: Obecné požadavky a konceptuální model | 2008 | [17572-1_2008.md](extrakty/TC278WG7/17572-1_2008.md) |
+| ISO 17572-1:2022 |  | Inteligentní dopravní systémy (ITS) – Odkazování na polohu pro geografické databáze – Část 1: Obecné požadavky a konceptuální model | 2026 | [17572-1_2022.md](extrakty/TC278WG7/17572-1_2022.md) |
 | ISO 17572-2:2008 |  | Inteligentní dopravní systémy – Označení pozic pro geografické databáze – Část 2: Předem kódované označení pozic | 2008 | [17572-2_2008.md](extrakty/TC278WG7/17572-2_2008.md) |
-| ISO 17572-3:2008 |  | Inteligentní dopravní systémy – Označení pozic pro geografické databáze – Část 3: Dynamické označení pozic | 2009 | [17572-3_2008.md](extrakty/TC278WG7/17572-3_2008.md) |
-| ISO 17572-3:2015 |  | Inteligentní dopravní systémy (ITS) — Označení poloh pro geografické databáze – Část 3: Dynamické označování poloh (dynamický profil) | 2015 | [17572-3_2015.md](extrakty/TC278WG7/17572-3_2015.md) |
+| ISO 17572-3:2008 |  | Inteligentní dopravní systémy (ITS) – Odkazování na polohu pro geografické databáze – Část 3: Dynamické odkazy na polohu (dynamický profil) | 2009 | [17572-3_2008.md](extrakty/TC278WG7/17572-3_2008.md) |
+| ISO 17572-3:2015 |  | Inteligentní dopravní systémy (ITS) – Odkazování na polohu pro geografické databáze – Část 3: Dynamické odkazy na polohu (dynamický profil) | 2015 | [17572-3_2015.md](extrakty/TC278WG7/17572-3_2015.md) |
 | ISO/TS 20452:2007 |  | Požadavky a logický datový model pro formát fyzického skladování dat (PSF) a rozhraní aplikačního programu (API) a logická organizace dat pro PSF používaná v inteligentních dopravních systémech | 2009 | [20452_2007.md](extrakty/TC278WG7/20452_2007.md) |
+| ISO 20524-1:2020 |  | Inteligentní dopravní systémy – Geografické datové soubory (GDF) GDF5.1 – Část 1: Mapová data nezávislá na aplikaci sdílená mezi více zdroji | 2026 | [20524-1_2020.md](extrakty/TC278WG7/20524-1_2020.md) |
 | ISO/TS 22726-1:2025 |  | Inteligentní dopravní systémy – Specifikace dynamických dat a mapové databáze pro aplikace propojených a automatizovaných systémů řízení – Část 1: Architektura a logický datový model pro harmonizaci statických mapových dat | 2025 | [22726-1_2025.md](extrakty/TC278WG7/22726-1_2025.md) |
 | ISO 24099:2011 |  | Struktura a protokol pro poskytování dat navigace | 2010 | [24099_2011.md](extrakty/TC278WG7/24099_2011.md) |
 
@@ -112,4 +113,4 @@ Needituj ho ručně – změny se při příštím běhu ztratí.
 
 ---
 
-Celkem 84 extraktů.
+Celkem 85 extraktů.
